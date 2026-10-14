@@ -152,8 +152,8 @@ const Shelf: React.FC<{t: number; a: number}> = ({t, a}) => {
           );
         }),
       )}
-      <div style={{position: 'absolute', left: 110 + (1 - low) * 60, top: 640 - 680 * (1004 / 1400) + 8, opacity: low}}>
-        <Lineup w={680} />
+      <div style={{position: 'absolute', left: 215 + (1 - low) * 60, top: 640 - 470 * (1004 / 1400) + 6, opacity: low}}>
+        <Lineup w={470} />
       </div>
     </div>
   );

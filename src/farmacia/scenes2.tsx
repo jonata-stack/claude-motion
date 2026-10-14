@@ -519,14 +519,14 @@ export const S7: React.FC<SP> = ({t}) => {
             const x = 112 + i * 222;
             const thumbs = [
               <FoodTile key={0} i={1} w={338} label={false} />,
-              <FashionTile key={1} i={2} w={338} />,
-              <Photo key={2} src={IMG.vitafor} w={190} h={338} pos="30% 50%" zoom={1} />,
+              <FashionTile key={1} i={2} w={190} />,
+              <Photo key={2} src={IMG.vitafor} w={338} h={338} pos="45% 50%" zoom={1} />,
               <FoodTile key={3} i={3} w={338} label={false} />,
             ];
             return (
               <Abs key={i} x={x} y={lerp(800, 660, k)} style={{opacity: k}}>
                 <div style={{width: 190, height: 338, borderRadius: 20, overflow: 'hidden', position: 'relative', background: P.sand2, boxShadow: '0 20px 40px rgba(0,0,0,0.4)'}}>
-                  <div style={{position: 'absolute', left: (190 - 338) / 2, top: 0, width: 338, height: 338, transform: `scale(${1 + 0.08 * prog(t, editA, cardA, (x) => x)})`}}>
+                  <div style={{position: 'absolute', left: i === 1 ? 0 : (190 - 338) / 2, top: 0, width: i === 1 ? 190 : 338, height: 338, transform: `scale(${1 + 0.08 * prog(t, editA, cardA, (x) => x)})`}}>
                     {thumbs[i]}
                   </div>
                   <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55))'}} />
@@ -766,7 +766,7 @@ export const S10: React.FC<SP> = ({t}) => {
       )}
       {ph > 0 && (
         <AbsoluteFill style={{opacity: ph}}>
-          <Trio t={t} a={phoneA - 0.2} tileK={(i) => prog(t, phoneA + 0.4 + i * 0.06, phoneA + 0.8 + i * 0.06, easeOut)} />
+          <Trio t={t} a={phoneA + 0.1} tileK={(i) => prog(t, phoneA + 0.4 + i * 0.06, phoneA + 0.8 + i * 0.06, easeOut)} />
           <Abs x={540} y={1352} style={{transform: 'translateX(-50%)'}}>
             <DemoTag />
           </Abs>
