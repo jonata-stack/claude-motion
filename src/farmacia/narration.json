@@ -1,0 +1,203 @@
+{
+ "voice": "kokoro:pf_dora",
+ "speed": 1.0,
+ "scenes": [
+  {
+   "id": "s1",
+   "lead": 0.9,
+   "lines": [
+    [
+     "Você cuida do produto, do atendimento",
+     "e de cada detalhe do seu negócio."
+    ],
+    [
+     "Seu Instagram precisa mostrar esse mesmo cuidado."
+    ],
+    [
+     "Porque, antes de entrar na sua loja,",
+     "muita gente conhece você pela tela."
+    ]
+   ],
+   "tail": 0.6
+  },
+  {
+   "id": "s2",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Só que, entre atender, organizar a operação",
+     "e resolver o dia a dia,",
+     "o conteúdo acaba ficando para depois."
+    ],
+    [
+     "E aquilo que torna seu negócio especial",
+     "nem sempre aparece com a atenção que merece."
+    ]
+   ],
+   "tail": 0.6
+  },
+  {
+   "id": "s3",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Foi dessa percepção que nasceu nossa proposta."
+    ],
+    [
+     "Somos uma dupla construindo um serviço",
+     "próximo de quem empreende:"
+    ],
+    [
+     "planejamos o conteúdo, cuidamos da apresentação",
+     "e organizamos as publicações",
+     "para valorizar o que você já faz bem."
+    ]
+   ],
+   "tail": 0.6
+  },
+  {
+   "id": "s4",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Nós agregamos valor à imagem do seu negócio."
+    ],
+    [
+     "Cada arte, cada legenda e cada vídeo",
+     "passa a fazer parte de uma apresentação",
+     "mais organizada e reconhecível."
+    ],
+    [
+     "Seu produto ganha destaque."
+    ],
+    [
+     "Sua marca ganha consistência."
+    ],
+    [
+     "E você ganha uma rotina de conteúdo planejada."
+    ]
+   ],
+   "tail": 0.8
+  },
+  {
+   "id": "s5",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Na farmácia, valorizamos a apresentação",
+     "dos produtos, da equipe e dos serviços."
+    ],
+    [
+     "Na alimentação, mostramos o preparo",
+     "e os detalhes que despertam vontade."
+    ],
+    [
+     "Nas lojas de roupas e calçados,",
+     "destacamos peças, combinações e novidades."
+    ],
+    [
+     "O conteúdo acompanha a identidade de cada negócio."
+    ]
+   ],
+   "tail": 0.8
+  },
+  {
+   "id": "s6",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Para começar com uma presença organizada,",
+     "o plano Essencial custa quinhentos reais por mês."
+    ],
+    [
+     "São oito publicações no feed,",
+     "com artes, legendas, calendário e publicação:"
+    ],
+    [
+     "quatro carrosséis e quatro posts de imagem única."
+    ]
+   ],
+   "tail": 2.6
+  },
+  {
+   "id": "s7",
+   "lead": 0.9,
+   "lines": [
+    [
+     "Para incluir vídeos e mostrar seu negócio de perto,",
+     "o plano Presença mais Vídeo",
+     "custa mil e duzentos reais por mês."
+    ],
+    [
+     "Nós vamos até sua loja em uma visita mensal",
+     "de até duas horas,",
+     "gravamos e editamos quatro Reels."
+    ],
+    [
+     "Você também recebe as oito publicações do Essencial",
+     "e oito telas de stories adaptadas dos conteúdos."
+    ]
+   ],
+   "tail": 3.0
+  },
+  {
+   "id": "s8",
+   "lead": 0.9,
+   "lines": [
+    [
+     "Primeiro, alinhamos sua identidade,",
+     "seus produtos e suas prioridades."
+    ],
+    [
+     "Depois, organizamos o calendário",
+     "e produzimos os materiais."
+    ],
+    [
+     "Você aprova o conteúdo antes da publicação."
+    ],
+    [
+     "No plano presencial, a gravação é agendada",
+     "para produzir os vídeos do mês em uma única sessão."
+    ]
+   ],
+   "tail": 1.0
+  },
+  {
+   "id": "s9",
+   "lead": 0.8,
+   "lines": [
+    [
+     "Também temos organização inicial do perfil",
+     "e atendimento básico de mensagens e comentários",
+     "como serviços adicionais,",
+     "conforme a necessidade da sua loja."
+    ]
+   ],
+   "tail": 3.2
+  },
+  {
+   "id": "s10",
+   "lead": 0.9,
+   "lines": [
+    [
+     "Seu negócio já tem valor."
+    ],
+    [
+     "Vamos fazer esse valor aparecer também no seu Instagram."
+    ],
+    [
+     "Responda esta mensagem e vamos conversar",
+     "sobre o plano que faz sentido para a sua loja."
+    ]
+   ],
+   "tail": 3.4
+  }
+ ],
+ "say": {
+  "Instagram": "Instagrãm",
+  "Reels": "Ríls",
+  "stories": "stóris",
+  "feed": "fid",
+  "posts": "pôsts"
+ }
+}
