@@ -1,0 +1,37 @@
+{
+  "fps": 60,
+  "duration": 13,
+  "s1": {
+    "deu": 0.2,
+    "vontade": 0.45,
+    "swoosh": 0.95,
+    "exit": 3.2
+  },
+  "s2": {
+    "morph": 3.3,
+    "morphEnd": 4.0,
+    "title": [
+      3.45,
+      3.6
+    ],
+    "chips": [
+      4.35,
+      4.75,
+      5.15,
+      5.55,
+      5.95
+    ],
+    "tapDelay": 0.28,
+    "exit": 7.9
+  },
+  "s3": {
+    "iris": 8.0,
+    "irisEnd": 8.7,
+    "logo": 8.72,
+    "acai": 9.05,
+    "tagline": 9.3,
+    "cta": 9.75,
+    "handle": 10.1,
+    "tap": 10.7
+  }
+}
