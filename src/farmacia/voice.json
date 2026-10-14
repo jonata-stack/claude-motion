@@ -1,373 +1,393 @@
 {
- "duration": 163.21,
+ "duration": 177.036,
  "scenes": {
   "s1": {
    "start": 0.0,
    "voice": 0.9,
-   "voiceEnd": 12.6,
-   "end": 13.2,
+   "voiceEnd": 13.387,
+   "end": 13.987,
    "captions": [
     {
      "text": "Você cuida do produto, do atendimento",
      "t0": 0.9,
-     "t1": 2.956
+     "t1": 3.034
     },
     {
      "text": "e de cada detalhe do seu negócio.",
-     "t0": 2.956,
-     "t1": 4.82
+     "t0": 3.034,
+     "t1": 4.97
     },
     {
      "text": "Seu Instagram precisa mostrar esse mesmo cuidado.",
-     "t0": 5.14,
-     "t1": 8.12
+     "t0": 5.548,
+     "t1": 8.528
     },
     {
      "text": "Porque, antes de entrar na sua loja,",
-     "t0": 8.44,
-     "t1": 10.545
+     "t0": 9.057,
+     "t1": 11.252
     },
     {
      "text": "muita gente conhece você pela tela.",
-     "t0": 10.545,
-     "t1": 12.6
+     "t0": 11.252,
+     "t1": 13.387
     }
    ]
   },
   "s2": {
-   "start": 13.2,
-   "voice": 14.0,
-   "voiceEnd": 25.05,
-   "end": 25.65,
+   "start": 13.987,
+   "voice": 14.787,
+   "voiceEnd": 26.517,
+   "end": 27.117,
    "captions": [
     {
      "text": "Só que, entre atender, organizar a operação",
-     "t0": 14.0,
-     "t1": 16.389
+     "t0": 14.787,
+     "t1": 17.257
     },
     {
      "text": "e resolver o dia a dia,",
-     "t0": 16.389,
-     "t1": 17.83
+     "t0": 17.257,
+     "t1": 18.762
     },
     {
      "text": "o conteúdo acaba ficando para depois.",
-     "t0": 17.83,
-     "t1": 19.9
+     "t0": 18.762,
+     "t1": 20.887
     },
     {
      "text": "E aquilo que torna seu negócio especial",
-     "t0": 20.22,
-     "t1": 22.76
+     "t0": 21.507,
+     "t1": 24.147
     },
     {
      "text": "nem sempre aparece com a atenção que merece.",
-     "t0": 22.76,
-     "t1": 25.05
+     "t0": 24.147,
+     "t1": 26.517
     }
    ]
   },
   "s3": {
-   "start": 25.65,
-   "voice": 26.45,
-   "voiceEnd": 39.78,
-   "end": 40.38,
+   "start": 27.117,
+   "voice": 27.917,
+   "voiceEnd": 41.439,
+   "end": 42.039,
    "captions": [
     {
      "text": "Foi dessa percepção que nasceu nossa proposta.",
-     "t0": 26.45,
-     "t1": 29.06
+     "t0": 27.917,
+     "t1": 30.527
     },
     {
      "text": "Somos uma dupla construindo um serviço",
-     "t0": 29.38,
-     "t1": 31.435
+     "t0": 31.049,
+     "t1": 33.109
     },
     {
      "text": "próximo de quem empreende:",
-     "t0": 31.435,
-     "t1": 32.95
+     "t0": 33.109,
+     "t1": 34.619
     },
     {
      "text": "planejamos o conteúdo, cuidamos da apresentação",
-     "t0": 33.27,
-     "t1": 35.924
+     "t0": 34.839,
+     "t1": 37.53
     },
     {
      "text": "e organizamos as publicações",
-     "t0": 35.924,
-     "t1": 37.925
+     "t0": 37.53,
+     "t1": 39.599
     },
     {
      "text": "para valorizar o que você já faz bem.",
-     "t0": 37.925,
-     "t1": 39.78
+     "t0": 39.599,
+     "t1": 41.439
     }
    ]
   },
   "s4": {
-   "start": 40.38,
-   "voice": 41.18,
-   "voiceEnd": 58.23,
-   "end": 59.03,
+   "start": 42.039,
+   "voice": 42.839,
+   "voiceEnd": 61.001,
+   "end": 61.801,
    "captions": [
     {
      "text": "Nós agregamos valor à imagem do seu negócio.",
-     "t0": 41.18,
-     "t1": 43.85
+     "t0": 42.839,
+     "t1": 45.509
     },
     {
      "text": "Cada arte, cada legenda e cada vídeo",
-     "t0": 44.17,
-     "t1": 46.57
+     "t0": 46.027,
+     "t1": 48.397
     },
     {
      "text": "passa a fazer parte de uma apresentação",
-     "t0": 46.57,
-     "t1": 48.745
+     "t0": 48.397,
+     "t1": 50.685
     },
     {
      "text": "mais organizada e reconhecível.",
-     "t0": 48.745,
-     "t1": 50.69
+     "t0": 50.685,
+     "t1": 52.667
     },
     {
      "text": "Seu produto ganha destaque.",
-     "t0": 51.01,
-     "t1": 52.72
+     "t0": 53.287,
+     "t1": 55.097
     },
     {
      "text": "Sua marca ganha consistência.",
-     "t0": 53.04,
-     "t1": 54.9
+     "t0": 55.577,
+     "t1": 57.507
     },
     {
      "text": "E você ganha uma rotina de conteúdo planejada.",
-     "t0": 55.22,
-     "t1": 58.23
+     "t0": 57.991,
+     "t1": 61.001
     }
    ]
   },
   "s5": {
-   "start": 59.03,
-   "voice": 59.83,
-   "voiceEnd": 77.06,
-   "end": 77.86,
+   "start": 61.801,
+   "voice": 62.601,
+   "voiceEnd": 87.646,
+   "end": 88.446,
    "captions": [
     {
-     "text": "Na farmácia, valorizamos a apresentação",
-     "t0": 59.83,
-     "t1": 62.345
+     "text": "Para farmácias e drogarias,",
+     "t0": 62.601,
+     "t1": 64.231
     },
     {
-     "text": "dos produtos, da equipe e dos serviços.",
-     "t0": 62.345,
-     "t1": 64.45
+     "text": "desenvolvemos conteúdos estratégicos",
+     "t0": 64.231,
+     "t1": 66.236
+    },
+    {
+     "text": "alinhados às normas de publicidade",
+     "t0": 66.236,
+     "t1": 68.646
+    },
+    {
+     "text": "e às exigências da Anvisa,",
+     "t0": 68.646,
+     "t1": 70.306
+    },
+    {
+     "text": "valorizando os produtos e a identidade",
+     "t0": 70.306,
+     "t1": 72.846
+    },
+    {
+     "text": "de cada estabelecimento.",
+     "t0": 72.846,
+     "t1": 74.051
     },
     {
      "text": "Na alimentação, mostramos o preparo",
-     "t0": 64.77,
-     "t1": 66.55
+     "t0": 74.671,
+     "t1": 76.456
     },
     {
      "text": "e os detalhes que despertam vontade.",
-     "t0": 66.55,
-     "t1": 68.81
+     "t0": 76.456,
+     "t1": 78.711
     },
     {
      "text": "Nas lojas de roupas e calçados,",
-     "t0": 69.13,
-     "t1": 70.995
+     "t0": 79.291,
+     "t1": 81.226
     },
     {
      "text": "destacamos peças, combinações e novidades.",
-     "t0": 70.995,
-     "t1": 73.65
+     "t0": 81.226,
+     "t1": 83.961
     },
     {
      "text": "O conteúdo acompanha a identidade de cada negócio.",
-     "t0": 73.97,
-     "t1": 77.06
+     "t0": 84.546,
+     "t1": 87.646
     }
    ]
   },
   "s6": {
-   "start": 77.86,
-   "voice": 78.66,
-   "voiceEnd": 91.59,
-   "end": 94.19,
+   "start": 88.446,
+   "voice": 89.246,
+   "voiceEnd": 102.716,
+   "end": 105.316,
    "captions": [
     {
      "text": "Para começar com uma presença organizada,",
-     "t0": 78.66,
-     "t1": 81.07
+     "t0": 89.246,
+     "t1": 91.601
     },
     {
      "text": "o plano Essencial custa quinhentos reais por mês.",
-     "t0": 81.07,
-     "t1": 83.7
+     "t0": 91.601,
+     "t1": 94.466
     },
     {
      "text": "São oito publicações no feed,",
-     "t0": 84.02,
-     "t1": 85.285
+     "t0": 95.086,
+     "t1": 96.741
     },
     {
      "text": "com artes, legendas, calendário e publicação:",
-     "t0": 85.285,
-     "t1": 88.33
+     "t0": 96.741,
+     "t1": 99.556
     },
     {
      "text": "quatro carrosséis e quatro posts de imagem única.",
-     "t0": 88.65,
-     "t1": 91.59
+     "t0": 99.776,
+     "t1": 102.716
     }
    ]
   },
   "s7": {
-   "start": 94.19,
-   "voice": 95.09,
-   "voiceEnd": 113.66,
-   "end": 116.66,
+   "start": 105.316,
+   "voice": 106.216,
+   "voiceEnd": 125.866,
+   "end": 128.866,
    "captions": [
     {
      "text": "Para incluir vídeos e mostrar seu negócio de perto,",
-     "t0": 95.09,
-     "t1": 97.895
+     "t0": 106.216,
+     "t1": 109.131
     },
     {
      "text": "o plano Presença mais Vídeo",
-     "t0": 97.895,
-     "t1": 99.51
+     "t0": 109.131,
+     "t1": 110.856
     },
     {
      "text": "custa mil e duzentos reais por mês.",
-     "t0": 99.51,
-     "t1": 101.59
+     "t0": 110.856,
+     "t1": 112.886
     },
     {
      "text": "Nós vamos até sua loja em uma visita mensal",
-     "t0": 101.91,
-     "t1": 104.391
+     "t0": 113.506,
+     "t1": 116.069
     },
     {
      "text": "de até duas horas,",
-     "t0": 104.391,
-     "t1": 105.606
+     "t0": 116.069,
+     "t1": 117.246
     },
     {
      "text": "gravamos e editamos quatro Reels.",
-     "t0": 105.606,
-     "t1": 107.58
+     "t0": 117.246,
+     "t1": 119.366
     },
     {
      "text": "Você também recebe as oito publicações do Essencial",
-     "t0": 107.9,
-     "t1": 111.3
+     "t0": 119.986,
+     "t1": 123.041
     },
     {
      "text": "e oito telas de stories adaptadas dos conteúdos.",
-     "t0": 111.3,
-     "t1": 113.66
+     "t0": 123.041,
+     "t1": 125.866
     }
    ]
   },
   "s8": {
-   "start": 116.66,
-   "voice": 117.56,
-   "voiceEnd": 134.32,
-   "end": 135.32,
+   "start": 128.866,
+   "voice": 129.766,
+   "voiceEnd": 147.386,
+   "end": 148.386,
    "captions": [
     {
      "text": "Primeiro, alinhamos sua identidade,",
-     "t0": 117.56,
-     "t1": 119.77
+     "t0": 129.766,
+     "t1": 131.976
     },
     {
      "text": "seus produtos e suas prioridades.",
-     "t0": 119.77,
-     "t1": 121.88
+     "t0": 131.976,
+     "t1": 134.066
     },
     {
      "text": "Depois, organizamos o calendário",
-     "t0": 122.2,
-     "t1": 124.375
+     "t0": 134.639,
+     "t1": 136.555
     },
     {
      "text": "e produzimos os materiais.",
-     "t0": 124.375,
-     "t1": 125.73
+     "t0": 136.555,
+     "t1": 138.169
     },
     {
      "text": "Você aprova o conteúdo antes da publicação.",
-     "t0": 126.05,
-     "t1": 128.76
+     "t0": 138.72,
+     "t1": 141.44
     },
     {
      "text": "No plano presencial, a gravação é agendada",
-     "t0": 129.08,
-     "t1": 131.475
+     "t0": 141.956,
+     "t1": 144.691
     },
     {
      "text": "para produzir os vídeos do mês em uma única sessão.",
-     "t0": 131.475,
-     "t1": 134.32
+     "t0": 144.691,
+     "t1": 147.386
     }
    ]
   },
   "s9": {
-   "start": 135.32,
-   "voice": 136.12,
-   "voiceEnd": 145.28,
-   "end": 148.48,
+   "start": 148.386,
+   "voice": 149.186,
+   "voiceEnd": 158.526,
+   "end": 161.726,
    "captions": [
     {
      "text": "Também temos organização inicial do perfil",
-     "t0": 136.12,
-     "t1": 138.425
+     "t0": 149.186,
+     "t1": 151.941
     },
     {
      "text": "e atendimento básico de mensagens e comentários",
-     "t0": 138.425,
-     "t1": 141.468
+     "t0": 151.941,
+     "t1": 154.638
     },
     {
      "text": "como serviços adicionais,",
-     "t0": 141.468,
-     "t1": 143.235
+     "t0": 154.638,
+     "t1": 156.506
     },
     {
      "text": "conforme a necessidade da sua loja.",
-     "t0": 143.235,
-     "t1": 145.28
+     "t0": 156.506,
+     "t1": 158.526
     }
    ]
   },
   "s10": {
-   "start": 148.48,
-   "voice": 149.38,
-   "voiceEnd": 159.81,
-   "end": 163.21,
+   "start": 161.726,
+   "voice": 162.626,
+   "voiceEnd": 173.636,
+   "end": 177.036,
    "captions": [
     {
      "text": "Seu negócio já tem valor.",
-     "t0": 149.38,
-     "t1": 151.09
+     "t0": 162.626,
+     "t1": 164.386
     },
     {
      "text": "Vamos fazer esse valor aparecer também no seu Instagram.",
-     "t0": 151.41,
-     "t1": 154.6
+     "t0": 164.861,
+     "t1": 168.051
     },
     {
      "text": "Responda esta mensagem e vamos conversar",
-     "t0": 154.92,
-     "t1": 157.77
+     "t0": 168.596,
+     "t1": 171.596
     },
     {
      "text": "sobre o plano que faz sentido para a sua loja.",
-     "t0": 157.77,
-     "t1": 159.81
+     "t0": 171.596,
+     "t1": 173.636
     }
    ]
   }

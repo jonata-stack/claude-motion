@@ -1,6 +1,7 @@
 {
  "voice": "kokoro:pf_dora",
  "speed": 1.0,
+ "silence": 0.8,
  "scenes": [
   {
    "id": "s1",
@@ -84,8 +85,12 @@
    "lead": 0.8,
    "lines": [
     [
-     "Na farmácia, valorizamos a apresentação",
-     "dos produtos, da equipe e dos serviços."
+     "Para farmácias e drogarias,",
+     "desenvolvemos conteúdos estratégicos",
+     "alinhados às normas de publicidade",
+     "e às exigências da Anvisa,",
+     "valorizando os produtos e a identidade",
+     "de cada estabelecimento."
     ],
     [
      "Na alimentação, mostramos o preparo",
@@ -195,9 +200,10 @@
  ],
  "say": {
   "Instagram": "Instagrãm",
-  "Reels": "Ríls",
+  "Reels": "Ríowls",
   "stories": "stóris",
   "feed": "fid",
-  "posts": "pôsts"
+  "posts": "pôsts",
+  "Anvisa": "Anvísa"
  }
 }

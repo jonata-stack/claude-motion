@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp01, easeIn, easeInOut, easeOut, lerp, prog} from '../lib';
 import {cap, FASHION, FF, FOOD, IMG, P, PHARMA, scene} from './lib';
 import {
@@ -49,32 +49,90 @@ const Card: React.FC<{w: number; h: number; x: number; y: number; rot?: number; 
   </div>
 );
 
+/** The three demo profiles side by side, one per segment, rising in from `a`. */
+const Trio: React.FC<{t: number; a: number; tileK?: (i: number) => number}> = ({t, a, tileK}) => (
+  <>
+    {[
+      {brand: PHARMA_BRAND, tile: (i: number, w: number) => <PharmaTile kind={PHARMA_GRID[i]} w={w} />, label: 'Farmácias', col: PHARMA.green},
+      {brand: FOOD_BRAND, tile: (i: number, w: number) => <FoodTile i={i} w={w} label={false} />, label: 'Alimentação', col: FOOD.pink},
+      {brand: FASHION_BRAND, tile: (i: number, w: number) => <FashionTile i={i + (i % 2)} w={w} />, label: 'Roupas e calçados', col: FASHION.black},
+    ].map((p, i) => {
+      const k = prog(t, a + 0.3 + i * 0.2, a + 1.1 + i * 0.2, easeOut);
+      return (
+        <React.Fragment key={i}>
+          <Phone x={200 + i * 340} y={lerp(1100, 900, k)} w={300} opacity={clamp01(k * 2)}>
+            <Profile w={279} brand={p.brand} tile={p.tile} rows={4} tileK={tileK} />
+          </Phone>
+          <Abs x={200 + i * 340} y={lerp(1400, 1250, k)} style={{transform: 'translateX(-50%)', opacity: k, whiteSpace: 'nowrap'}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 12, fontFamily: FF.sans, fontWeight: 700, fontSize: 30, color: P.ink}}>
+              <span style={{width: 14, height: 14, borderRadius: '50%', background: p.col}} />
+              {p.label}
+            </div>
+          </Abs>
+        </React.Fragment>
+      );
+    })}
+  </>
+);
+
 /* ---------------------------------------------------------------- S5 */
 
 export const S5: React.FC<SP> = ({t}) => {
   const c = (i: number) => cap('s5', i);
   const s = scene('s5');
   const a1 = s.start;
-  const a2 = c(2) - 0.35;
-  const a3 = c(4) - 0.35;
-  const a4 = c(6) - 0.35;
+  const a2 = c(6) - 0.35;
+  const a3 = c(8) - 0.35;
+  const a4 = c(10) - 0.35;
+  const rules = prog(t, c(2) - 0.1, c(2) + 0.7, easeOut);
+  const swap = prog(t, c(4) - 0.1, c(4) + 0.7, easeInOut);
   return (
     <AbsoluteFill>
       <Segment t={t} a={a1} b={a2 + 0.4}>
         <Bg color={PHARMA.bg} />
         <Abs x={90} y={250}>
           <Kicker color={PHARMA.green}>Para</Kicker>
-          <Headline t={t} at={a1 + 0.5} lines={['Farmácias']} size={120} color={PHARMA.ink} />
+          <Headline t={t} at={a1 + 0.5} lines={['Farmácias', 'e drogarias']} size={96} color={PHARMA.ink} />
         </Abs>
-        <Card w={470} h={470} x={70} y={640} rot={-6} k={prog(t, a1 + 0.6, a1 + 1.4, easeOut)}>
-          <PharmaTile kind="team" w={470} />
+        <Card w={430} h={430} x={70} y={640} rot={-6} k={prog(t, a1 + 0.6, a1 + 1.4, easeOut)}>
+          <PharmaTile kind="team" w={430} />
         </Card>
-        <Card w={470} h={470} x={540} y={600} rot={5} k={prog(t, a1 + 0.9, a1 + 1.7, easeOut)}>
-          <PharmaTile kind="aroeira" w={470} />
+        <Card w={430} h={430} x={580} y={610} rot={5} k={prog(t, a1 + 0.9, a1 + 1.7, easeOut)}>
+          <PharmaTile kind="vitafor" w={430} />
         </Card>
-        <Card w={560} h={560} x={260} y={780} rot={-1} k={prog(t, c(1) - 0.2, c(1) + 0.6, easeOut)}>
-          <PharmaTile kind="calcium" w={560} />
+        <Card w={540} h={540} x={270} y={760} rot={-1} k={prog(t, c(1) - 0.2, c(1) + 0.6, easeOut)}>
+          <div style={{position: 'absolute', inset: 0, opacity: 1 - swap}}>
+            <PharmaTile kind="catarinense" w={540} />
+          </div>
+          <div style={{position: 'absolute', inset: 0, opacity: swap, transform: `scale(${1.06 - 0.06 * swap})`}}>
+            <PharmaTile kind="calcium" w={540} />
+          </div>
         </Card>
+        <Abs x={540} y={lerp(1250, 1210, rules)} style={{transform: 'translateX(-50%)', opacity: clamp01(rules * 1.6)}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 22,
+              width: 820,
+              padding: '22px 30px',
+              borderRadius: 26,
+              background: P.white,
+              boxShadow: `0 20px 50px ${P.shadow}`,
+              fontFamily: FF.sans,
+              fontWeight: 650,
+              fontSize: 31,
+              lineHeight: 1.22,
+              color: PHARMA.ink,
+            }}
+          >
+            <svg width={64} height={64} viewBox="0 0 24 24" style={{flexShrink: 0}}>
+              <path d="M12 2 L20 5.5 V11.5 C20 16.5 16.6 20.4 12 22 C7.4 20.4 4 16.5 4 11.5 V5.5 Z" fill={PHARMA.green} />
+              <path d="M8 12 L11 15 L16.5 9" fill="none" stroke={PHARMA.bg} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - prog(t, c(3) - 0.2, c(3) + 0.5, easeOut)} />
+            </svg>
+            Conteúdo alinhado às normas de publicidade e às exigências da Anvisa
+          </div>
+        </Abs>
         <Abs x={90} y={1352} style={{opacity: prog(t, a1 + 1.4, a1 + 2, easeOut)}}>
           <DemoTag />
         </Abs>
@@ -106,7 +164,7 @@ export const S5: React.FC<SP> = ({t}) => {
         <Card w={400} h={400} x={590} y={540} rot={4} k={prog(t, a2 + 0.8, a2 + 1.6, easeOut)}>
           <FoodTile i={1} w={400} />
         </Card>
-        <Card w={400} h={400} x={580} y={960} rot={-3} k={prog(t, c(3) - 0.2, c(3) + 0.6, easeOut)}>
+        <Card w={400} h={400} x={580} y={960} rot={-3} k={prog(t, c(7) - 0.2, c(7) + 0.6, easeOut)}>
           <FoodTile i={2} w={400} />
         </Card>
         <Abs x={90} y={1352} style={{opacity: prog(t, a2 + 1.2, a2 + 1.8, easeOut)}}>
@@ -141,7 +199,7 @@ export const S5: React.FC<SP> = ({t}) => {
                 <Bag color={FASHION.olive} s={200} />
               </div>
               {(() => {
-                const kk = prog(t, c(5) - 0.1, c(5) + 0.5, easeOut);
+                const kk = prog(t, c(9) - 0.1, c(9) + 0.5, easeOut);
                 return (
                   <div style={{position: 'absolute', right: 30, top: 30, opacity: kk, transform: `scale(${0.9 + 0.1 * kk})`}}>
                     <Chip label="Combinação" k={kk} dot={FASHION.camel} size={28} />
@@ -151,7 +209,7 @@ export const S5: React.FC<SP> = ({t}) => {
             </Abs>
           );
         })()}
-        <Card w={330} h={330} x={660} y={1000} rot={5} k={prog(t, c(5) + 0.3, c(5) + 1.1, easeOut)}>
+        <Card w={330} h={330} x={660} y={1000} rot={5} k={prog(t, c(9) + 0.3, c(9) + 1.1, easeOut)}>
           <FashionTile i={0} w={330} />
         </Card>
         <Abs x={90} y={1352} style={{opacity: prog(t, a3 + 1.2, a3 + 1.8, easeOut)}}>
@@ -161,28 +219,9 @@ export const S5: React.FC<SP> = ({t}) => {
 
       <Segment t={t} a={a4} b={s.end + 1}>
         <Bg color={P.cream} />
-        {[
-          {brand: PHARMA_BRAND, tile: (i: number, w: number) => <PharmaTile kind={PHARMA_GRID[i]} w={w} />, label: 'Farmácias', col: PHARMA.green},
-          {brand: FOOD_BRAND, tile: (i: number, w: number) => <FoodTile i={i} w={w} label={false} />, label: 'Alimentação', col: FOOD.pink},
-          {brand: FASHION_BRAND, tile: (i: number, w: number) => <FashionTile i={i + (i % 2)} w={w} />, label: 'Roupas e calçados', col: FASHION.black},
-        ].map((p, i) => {
-          const k = prog(t, a4 + 0.3 + i * 0.2, a4 + 1.1 + i * 0.2, easeOut);
-          return (
-            <React.Fragment key={i}>
-              <Phone x={200 + i * 340} y={lerp(1100, 900, k)} w={300} opacity={clamp01(k * 2)}>
-                <Profile w={279} brand={p.brand} tile={p.tile} rows={4} />
-              </Phone>
-              <Abs x={200 + i * 340} y={lerp(1400, 1250, k)} style={{transform: 'translateX(-50%)', opacity: k, whiteSpace: 'nowrap'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap: 12, fontFamily: FF.sans, fontWeight: 700, fontSize: 30, color: P.ink}}>
-                  <span style={{width: 14, height: 14, borderRadius: '50%', background: p.col}} />
-                  {p.label}
-                </div>
-              </Abs>
-            </React.Fragment>
-          );
-        })}
+        <Trio t={t} a={a4} />
         <Abs x={90} y={250} w={900}>
-          <Headline t={t} at={c(6)} lines={['Cada negócio com', 'sua identidade.']} size={84} accent={['identidade']} />
+          <Headline t={t} at={c(10)} lines={['Cada negócio com', 'sua identidade.']} size={84} accent={['identidade']} />
         </Abs>
         <Abs x={540} y={1330} style={{transform: 'translateX(-50%)', opacity: prog(t, a4 + 1, a4 + 1.6, easeOut)}}>
           <DemoTag size={19} />
@@ -288,7 +327,7 @@ const Note: React.FC<{k: number; children: React.ReactNode; dark?: boolean}> = (
 /** A carousel of 4 pages, fanned, with page dots. */
 const Carousel: React.FC<{x: number; y: number; s: number; k: number}> = ({x, y, s, k}) => (
   <Abs x={x} y={y}>
-    {(['calcium', 'k2', 'artro', 'd3'] as const).map((kind, i) => {
+    {[0, 1, 2, 3].map((kind, i) => {
       const kk = clamp01(k * 2 - i * 0.25);
       return (
         <div
@@ -306,7 +345,7 @@ const Carousel: React.FC<{x: number; y: number; s: number; k: number}> = ({x, y,
             opacity: clamp01(kk * 2),
           }}
         >
-          <PharmaTile kind={kind} w={s} />
+          <FoodTile i={kind} w={s} />
         </div>
       );
     })}
@@ -334,7 +373,7 @@ export const S6: React.FC<SP> = ({t}) => {
       </Abs>
       <Abs x={720} y={lerp(280, 220, ex)} style={{opacity: clamp01(ex * 2 - 0.4)}}>
         <div style={{width: 230, height: 230, borderRadius: 14, overflow: 'hidden', boxShadow: '0 16px 30px rgba(0,0,0,0.35)', position: 'relative'}}>
-          <PharmaTile kind="aroeira" w={230} />
+          <FashionTile i={1} w={230} />
         </div>
         <div style={{fontFamily: FF.mono, fontSize: 22, letterSpacing: '0.16em', color: P.muted, marginTop: 34}}>POST ÚNICO</div>
       </Abs>
@@ -368,8 +407,8 @@ const Viewfinder: React.FC<{t: number; a: number; w: number}> = ({t, a, w}) => {
       <div style={{position: 'absolute', inset: 0, transform: `scale(${zoom})`, transformOrigin: '50% 60%'}}>
         <div style={{position: 'absolute', left: 0, right: 0, top: h * 0.62, bottom: 0, background: P.sand3}} />
         <Glow x={sw * 0.5} y={h * 0.45} r={sw * 0.8} o={0.6} />
-        <div style={{position: 'absolute', left: sw * 0.12, top: h * 0.62 - sw * 0.76 * BOX_RATIO.aroeira + (1 - place) * -h * 0.3, opacity: clamp01(place * 3)}}>
-          <Box src={IMG.aroeira} w={sw * 0.76} ratio={BOX_RATIO.aroeira} />
+        <div style={{position: 'absolute', left: sw * 0.1, top: h * 0.62 - sw * 0.4 + (1 - place) * -h * 0.3, opacity: clamp01(place * 3), filter: `drop-shadow(0 ${sw * 0.03}px ${sw * 0.03}px ${P.shadow})`}}>
+          <Sneaker color={FASHION.camel} sole={FASHION.bg} s={sw * 0.8} />
         </div>
         <Hand x={sw * 0.82} y={lerp(h * 0.3, -h * 0.25, prog(t, a + 1.1, a + 1.8, easeIn))} rot={200} s={0.9} curl={0.6} skin={P.skinB} skinDark={P.skinBDark} sleeve={P.sleeveB} />
       </div>
@@ -478,13 +517,17 @@ export const S7: React.FC<SP> = ({t}) => {
           {[0, 1, 2, 3].map((i) => {
             const k = prog(t, editA + 0.2 + i * 0.18, editA + 0.9 + i * 0.18, easeOut);
             const x = 112 + i * 222;
-            const srcs = [IMG.aroeira, IMG.k2, IMG.sulfuroso, IMG.artro];
+            const thumbs = [
+              <FoodTile key={0} i={1} w={338} label={false} />,
+              <FashionTile key={1} i={2} w={338} />,
+              <Photo key={2} src={IMG.vitafor} w={190} h={338} pos="30% 50%" zoom={1} />,
+              <FoodTile key={3} i={3} w={338} label={false} />,
+            ];
             return (
               <Abs key={i} x={x} y={lerp(800, 660, k)} style={{opacity: k}}>
                 <div style={{width: 190, height: 338, borderRadius: 20, overflow: 'hidden', position: 'relative', background: P.sand2, boxShadow: '0 20px 40px rgba(0,0,0,0.4)'}}>
-                  <div style={{position: 'absolute', left: 0, right: 0, top: 230, bottom: 0, background: P.sand3}} />
-                  <div style={{position: 'absolute', left: '50%', top: 230, transform: `translate(-50%, -100%) scale(${1 + 0.08 * prog(t, editA, cardA, (x) => x)})`, transformOrigin: '50% 100%'}}>
-                    <Box src={srcs[i]} w={i % 2 ? 110 : 160} ratio={[BOX_RATIO.aroeira, BOX_RATIO.k2, BOX_RATIO.sulfuroso, BOX_RATIO.artro][i]} />
+                  <div style={{position: 'absolute', left: (190 - 338) / 2, top: 0, width: 338, height: 338, transform: `scale(${1 + 0.08 * prog(t, editA, cardA, (x) => x)})`}}>
+                    {thumbs[i]}
                   </div>
                   <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55))'}} />
                   <div style={{position: 'absolute', left: 14, bottom: 14, display: 'flex', alignItems: 'center', gap: 8, fontFamily: FF.mono, fontSize: 20, color: P.white}}>
@@ -693,25 +736,37 @@ export const S10: React.FC<SP> = ({t}) => {
           <Abs x={90} y={250} w={900}>
             <Headline t={t} at={c(0)} lines={['Seu negócio', 'já tem valor.']} size={96} accent={['valor']} />
           </Abs>
-          <Abs x={110} y={1244 - 300 * BOX_RATIO.aroeira - 0}>
-            <Box src={IMG.aroeira} w={300} ratio={BOX_RATIO.aroeira} light={prog(t, s.start + 0.2, s.start + 2, easeInOut)} />
-          </Abs>
-          <Abs x={440} y={1244 - 240 * BOX_RATIO.k2}>
-            <Box src={IMG.k2} w={240} ratio={BOX_RATIO.k2} light={prog(t, s.start + 0.5, s.start + 2.3, easeInOut)} />
-          </Abs>
-          <Abs x={700} y={1244 - 290 * BOX_RATIO.sulfuroso}>
-            <Box src={IMG.sulfuroso} w={290} ratio={BOX_RATIO.sulfuroso} light={prog(t, s.start + 0.8, s.start + 2.6, easeInOut)} />
-          </Abs>
+          {[0, 1, 2].map((i) => {
+            const k = prog(t, s.start + 0.2 + i * 0.25, s.start + 1 + i * 0.25, easeOut);
+            const style = {opacity: k, transform: `translateY(${(1 - k) * 50}px)`};
+            if (i === 0)
+              return (
+                <Abs key={i} x={50} y={1250 - 400 * (1004 / 1400)} style={style}>
+                  <Img src={staticFile(IMG.vitaforLinha)} style={{width: 400, filter: `drop-shadow(0 16px 16px ${P.shadow})`}} />
+                </Abs>
+              );
+            if (i === 1)
+              return (
+                <Abs key={i} x={400} y={800} style={{...style, transform: `${style.transform} rotate(-3deg)`}}>
+                  <div style={{width: 300, height: 420, borderRadius: 18, overflow: 'hidden', position: 'relative', boxShadow: `0 24px 40px ${P.shadow}`}}>
+                    <FoodTile i={0} w={300} label={false} />
+                  </div>
+                </Abs>
+              );
+            return (
+              <Abs key={i} x={690} y={900} style={{...style, filter: `drop-shadow(0 16px 16px ${P.shadow})`}}>
+                <Tee color={FASHION.camel} s={300} />
+                <div style={{position: 'absolute', left: -20, top: 230}}>
+                  <Sneaker color={FASHION.black} sole={FASHION.bg} s={300} />
+                </div>
+              </Abs>
+            );
+          })}
         </AbsoluteFill>
       )}
       {ph > 0 && (
         <AbsoluteFill style={{opacity: ph}}>
-          <Phone x={540} y={lerp(1100, 920, prog(t, phoneA, phoneA + 0.9, easeOut))} w={400}>
-            <Profile w={372} brand={PHARMA_BRAND} tile={(i, w) => <PharmaTile kind={PHARMA_GRID[i]} w={w} />} tileK={(i) => prog(t, phoneA + 0.3 + i * 0.08, phoneA + 0.7 + i * 0.08, easeOut)} />
-          </Phone>
-          <Abs x={70} y={1100} style={{transform: 'rotate(-8deg)'}}>
-            <Box src={IMG.d3} w={150} ratio={BOX_RATIO.d3} />
-          </Abs>
+          <Trio t={t} a={phoneA - 0.2} tileK={(i) => prog(t, phoneA + 0.4 + i * 0.06, phoneA + 0.8 + i * 0.06, easeOut)} />
           <Abs x={540} y={1352} style={{transform: 'translateX(-50%)'}}>
             <DemoTag />
           </Abs>

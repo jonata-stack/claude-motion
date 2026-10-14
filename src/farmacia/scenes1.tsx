@@ -1,8 +1,8 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp01, easeIn, easeInOut, easeOut, lerp, prog, rand} from '../lib';
-import {cap, FF, IMG, P, PHARMA, scene} from './lib';
-import {BeforeTile, FeedScreen, PHARMA_BRAND, PHARMA_GRID, PharmaTile, Profile} from './posts';
+import {cap, FASHION, FF, FOOD, IMG, P, PHARMA, scene} from './lib';
+import {BeforeTile, FashionTile, FeedScreen, FOOD_BRAND, FoodTile, PHARMA_BRAND, PharmaTile, Profile, Sneaker, Tee} from './posts';
 import {Abs, Bg, Box, BOX_RATIO, Calendar, Chip, DemoTag, Glow, Hand, Headline, Kicker, life, Phone} from './ui';
 
 type SP = {t: number};
@@ -15,6 +15,29 @@ const Surface: React.FC<{t: number; edge?: number; color?: string; top?: string}
     <div style={{position: 'absolute', left: 0, right: 0, top: edge, height: 6, background: 'rgba(255,255,255,0.45)'}} />
   </AbsoluteFill>
 );
+
+/** The Vitafor lineup cutout standing on a surface, with a contact shadow and an optional light sweep. */
+const Lineup: React.FC<{w: number; light?: number}> = ({w, light = 0}) => {
+  const h = w * (1004 / 1400);
+  return (
+    <div style={{position: 'relative', width: w, height: h}}>
+      <div style={{position: 'absolute', left: w * 0.04, right: w * 0.04, bottom: -h * 0.03, height: h * 0.08, borderRadius: '50%', background: 'rgba(28,29,31,0.35)', filter: `blur(${w * 0.03}px)`}} />
+      <Img src={staticFile(IMG.vitaforLinha)} style={{position: 'absolute', inset: 0, width: w, height: h}} />
+      {light > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            WebkitMaskImage: `url(${staticFile(IMG.vitaforLinha)})`,
+            WebkitMaskSize: '100% 100%',
+            background: `linear-gradient(105deg, rgba(255,255,255,0) ${lerp(-40, 120, light) - 20}%, rgba(255,255,255,0.28) ${lerp(-40, 120, light)}%, rgba(255,255,255,0) ${lerp(-40, 120, light) + 20}%)`,
+            mixBlendMode: 'screen',
+          }}
+        />
+      )}
+    </div>
+  );
+};
 
 /** Top-down counter: one hand hands a product to another. `k` 0..1 drives the exchange. */
 const Handoff: React.FC<{t: number; a: number}> = ({t, a}) => {
@@ -30,13 +53,6 @@ const Handoff: React.FC<{t: number; a: number}> = ({t, a}) => {
       {[0, 1, 2, 3, 4, 5].map((i) => (
         <div key={i} style={{position: 'absolute', left: 0, right: 0, top: 640 + i * 150, height: 2, background: 'rgba(255,255,255,0.22)'}} />
       ))}
-      <Abs x={110} y={760} style={{transform: 'rotate(-8deg)'}}>
-        <svg width={230} height={280} viewBox="0 0 230 280">
-          <path d="M20 40 L210 40 L222 270 L8 270 Z" fill="#C7A77E" />
-          <path d="M20 40 L210 40 L206 70 L24 70 Z" fill="#B4936A" />
-          <path d="M80 40 Q80 0 115 0 Q150 0 150 40" stroke="#8C6F4E" strokeWidth={8} fill="none" />
-        </svg>
-      </Abs>
       <Abs x={780} y={1020} style={{transform: 'rotate(10deg)'}}>
         <div style={{width: 170, height: 250, borderRadius: 24, background: P.graphite, boxShadow: `0 16px 30px ${P.shadow}`}}>
           <div style={{margin: 18, height: 80, borderRadius: 10, background: '#3E5C52'}} />
@@ -49,8 +65,14 @@ const Handoff: React.FC<{t: number; a: number}> = ({t, a}) => {
       </Abs>
       <Hand x={560} y={custY} rot={-4} s={1.9} curl={0.15 + 0.5 * give} skin={P.skinA} skinDark={P.skinADark} sleeve={P.sleeveA} />
       <Hand x={520} y={staffY} rot={180} s={1.9} curl={0.6 - 0.4 * give} skin={P.skinB} skinDark={P.skinBDark} sleeve="#F4F4F2" />
-      <Abs x={540 - 160} y={boxY - 105} style={{transform: `rotate(${lerp(-6, 4, give)}deg)`}}>
-        <Box src={IMG.aroeira} w={320} ratio={BOX_RATIO.aroeira} />
+      <Abs x={540 - 140} y={boxY - 120} style={{transform: `rotate(${lerp(-6, 4, give)}deg)`, filter: `drop-shadow(0 18px 18px ${P.shadow})`}}>
+        <svg width={280} height={340} viewBox="0 0 230 280">
+          <path d="M20 40 L210 40 L222 270 L8 270 Z" fill="#C7A77E" />
+          <path d="M20 40 L210 40 L206 70 L24 70 Z" fill="#B4936A" />
+          <path d="M80 40 Q80 0 115 0 Q150 0 150 40" stroke="#8C6F4E" strokeWidth={8} fill="none" />
+          <rect x={70} y={130} width={90} height={90} rx={22} fill={PHARMA.green} />
+          <path d="M104 148h22v22h22v22h-22v22h-22v-22H82v-22h22z" fill={PHARMA.bg} />
+        </svg>
       </Abs>
     </AbsoluteFill>
   );
@@ -72,17 +94,9 @@ export const S1: React.FC<SP> = ({t}) => {
         <AbsoluteFill style={{opacity: hero}}>
           <Surface t={t} edge={1180} />
           <AbsoluteFill style={{transform: `scale(${push})`, transformOrigin: '50% 60%'}}>
-            {(['d3', 'artro', 'k2'] as const).map((k, i) => {
-              const w = [270, 330, 400][i];
-              const x = [70, 680, 330][i];
-              const h = w * BOX_RATIO[k];
-              const floor = [1150, 1150, 1290][i];
-              return (
-                <Abs key={k} x={x} y={floor - h} style={{zIndex: i}}>
-                  <Box src={IMG[k]} w={w} ratio={BOX_RATIO[k]} light={prog(t, 0.3 + i * 0.25, 2.4 + i * 0.25, easeInOut)} />
-                </Abs>
-              );
-            })}
+            <Abs x={90} y={1230 - 900 * (1004 / 1400)}>
+              <Lineup w={900} light={prog(t, 0.3, 2.8, easeInOut)} />
+            </Abs>
           </AbsoluteFill>
         </AbsoluteFill>
       )}
@@ -97,7 +111,7 @@ export const S1: React.FC<SP> = ({t}) => {
           <Phone x={540} y={lerp(1250, lerp(860, 940, lift), phoneK)} w={400} rot={lerp(8, 0, phoneK)} scale={lerp(1.12, 1, lift)}>
             <FeedScreen w={372} brand={PHARMA_BRAND}>
               <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + 0.05 * prog(t, phoneAt, s.end, (x) => x)})`}}>
-                <PharmaTile kind="calcium" w={372} />
+                <PharmaTile kind="vitafor" w={372} />
               </div>
             </FeedScreen>
           </Phone>
@@ -116,10 +130,8 @@ export const S1: React.FC<SP> = ({t}) => {
 /* ---------------------------------------------------------------- S2: the routine */
 
 const Shelf: React.FC<{t: number; a: number}> = ({t, a}) => {
-  const rows: (keyof typeof BOX_RATIO)[][] = [
-    ['k2', 'artro', 'd3', 'k2'],
-    ['aroeira', 'sulfuroso'],
-  ];
+  const rows: (keyof typeof BOX_RATIO)[][] = [['k2', 'artro', 'd3', 'k2']];
+  const low = prog(t, a + 1.0, a + 1.7, easeOut);
   return (
     <div style={{position: 'absolute', left: 90, top: 560, width: 900, height: 720}}>
       <div style={{position: 'absolute', inset: 0, borderRadius: 26, background: P.white, boxShadow: `0 30px 70px ${P.shadow}`}} />
@@ -140,6 +152,9 @@ const Shelf: React.FC<{t: number; a: number}> = ({t, a}) => {
           );
         }),
       )}
+      <div style={{position: 'absolute', left: 110 + (1 - low) * 60, top: 640 - 680 * (1004 / 1400) + 8, opacity: low}}>
+        <Lineup w={680} />
+      </div>
     </div>
   );
 };
@@ -255,7 +270,7 @@ export const S2: React.FC<SP> = ({t}) => {
 const ShotList: React.FC<{t: number; a: number}> = ({t, a}) => (
   <div style={{width: 420, padding: 34, background: P.white, borderRadius: 10, boxShadow: `0 20px 40px ${P.shadow}`, fontFamily: FF.sans, transform: 'rotate(-5deg)'}}>
     <div style={{fontWeight: 750, fontSize: 34, marginBottom: 20}}>Roteiro da sessão</div>
-    {['Prateleira', 'Rótulos em detalhe', 'Balcão', 'Equipe'].map((l, i) => {
+    {['Peças em destaque', 'Detalhes', 'Combinações', 'Equipe'].map((l, i) => {
       const k = prog(t, a + i * 0.55, a + i * 0.55 + 0.3, easeOut);
       return (
         <div key={l} style={{display: 'flex', alignItems: 'center', gap: 16, fontSize: 28, padding: '10px 0', borderTop: `2px solid ${P.inkFaint}`}}>
@@ -315,8 +330,11 @@ export const S3: React.FC<SP> = ({t}) => {
           <Abs x={60} y={880}>
             <ShotList t={t} a={c(0) + 0.6} />
           </Abs>
-          <Abs x={520} y={lerp(980, 940, place)} style={{transform: `rotate(${lerp(14, 6, place)}deg)`}}>
-            <Box src={IMG.sulfuroso} w={360} ratio={BOX_RATIO.sulfuroso} />
+          <Abs x={500} y={lerp(860, 820, place)} style={{transform: `rotate(${lerp(14, 6, place)}deg)`, filter: `drop-shadow(0 18px 20px ${P.shadow})`}}>
+            <Tee color={FASHION.camel} s={330} />
+          </Abs>
+          <Abs x={560} y={lerp(1160, 1130, place)} style={{transform: `rotate(${lerp(-10, -4, place)}deg)`, filter: `drop-shadow(0 14px 16px ${P.shadow})`}}>
+            <Sneaker color={FASHION.black} sole={FASHION.bg} s={300} />
           </Abs>
           <Hand x={lerp(1250, 1010, place) - 20 * prog(t, c(1) + 0.4, c(1) + 1.2, easeInOut)} y={lerp(1180, 1080, place)} rot={-70} s={1.6} curl={0.55} skin={P.skinB} skinDark={P.skinBDark} sleeve={P.sleeveB} />
           <div style={{opacity: duo}}>
@@ -354,11 +372,11 @@ export const S3: React.FC<SP> = ({t}) => {
             <Calendar
               w={560}
               fill={(d) => (d % 7 === 1 || d % 7 === 4 ? prog(t, plan + 0.5 + d * 0.035, plan + 0.8 + d * 0.035, easeOut) : 0)}
-              color={(d) => (d % 7 === 4 ? PHARMA.green : P.accent)}
+              color={(d) => (d % 7 === 4 ? FASHION.camel : FASHION.black)}
             />
           </Abs>
           <Abs x={660} y={600}>
-            {[PHARMA.green, PHARMA.mint, P.cream, P.ink].map((col, i) => {
+            {[FASHION.black, FASHION.camel, FASHION.stone, FASHION.bg].map((col, i) => {
               const k = prog(t, ident + i * 0.12, ident + 0.5 + i * 0.12, easeOut);
               return (
                 <div
@@ -388,11 +406,10 @@ export const S3: React.FC<SP> = ({t}) => {
                 position: 'absolute',
                 left: 40,
                 top: 300,
-                fontFamily: FF.sans,
-                fontWeight: 800,
-                fontSize: 150,
-                letterSpacing: '-0.05em',
-                color: PHARMA.green,
+                fontFamily: FF.serif,
+                fontSize: 170,
+                letterSpacing: '-0.02em',
+                color: FASHION.black,
                 opacity: prog(t, ident + 0.4, ident + 1, easeOut),
               }}
             >
@@ -404,11 +421,11 @@ export const S3: React.FC<SP> = ({t}) => {
           </Abs>
           <Abs x={70} y={1110}>
             <div style={{display: 'flex', gap: 22}}>
-              {(['calcium', 'aroeira', 'team', 'shelf'] as const).map((k, i) => {
+              {[0, 1, 2, 3].map((k, i) => {
                 const kk = prog(t, post + 0.2 + i * 0.22, post + 0.8 + i * 0.22, easeOut);
                 return (
                   <div key={k} style={{width: 214, height: 214, position: 'relative', borderRadius: 12, overflow: 'hidden', boxShadow: `0 14px 28px ${P.shadow}`, opacity: kk, transform: `translateY(${(1 - kk) * 60}px)`}}>
-                    <PharmaTile kind={k} w={214} />
+                    <FashionTile i={k} w={214} />
                   </div>
                 );
               })}
@@ -452,13 +469,13 @@ export const S4: React.FC<SP> = ({t}) => {
       <Phone x={lerp(540, 380, calK)} y={930} w={pw} rot={-4 * calK} scale={1 - 0.1 * calK}>
         <Profile
           w={sw}
-          brand={header > 0.5 ? PHARMA_BRAND : {...PHARMA_BRAND, handle: 'sua.loja', name: 'Sua Loja', avatar: <div style={{width: 200, height: 200, background: '#CFCFCF'}} />, bio: ['Bem-vindos!'], hl: [{label: 'Promo', color: '#F1D7DF'}, {label: 'Fotos', color: '#B9E4F0'}, {label: 'Avisos', color: '#FFF6D6'}, {label: 'Loja', color: '#DCDCDC'}], accent: '#CCCCCC'}}
+          brand={header > 0.5 ? FOOD_BRAND : {...FOOD_BRAND, font: undefined, handle: 'sua.loja', name: 'Sua Loja', avatar: <div style={{width: 200, height: 200, background: '#CFCFCF'}} />, bio: ['Bem-vindos!'], hl: [{label: 'Promo', color: '#F1D7DF'}, {label: 'Fotos', color: '#B9E4F0'}, {label: 'Avisos', color: '#FFF6D6'}, {label: 'Loja', color: '#DCDCDC'}], accent: '#CCCCCC'}}
           headerK={1 - 0.6 * Math.sin(header * Math.PI)}
           tile={(i, size) => {
             const f = tileFlip(i);
             return (
               <div style={{position: 'absolute', inset: 0, transform: `perspective(600px) rotateY(${f < 0.5 ? f * 180 : (f - 1) * 180}deg)`}}>
-                {f < 0.5 ? <BeforeTile i={i} w={size} /> : <PharmaTile kind={PHARMA_GRID[i]} w={size} />}
+                {f < 0.5 ? <BeforeTile i={i} w={size} /> : <FoodTile i={i} w={size} label={i % 3 !== 1} />}
               </div>
             );
           }}
@@ -474,13 +491,13 @@ export const S4: React.FC<SP> = ({t}) => {
       {zoom > 0 && (
         <Abs x={540 - 300} y={lerp(1060, 700, zoom)} style={{opacity: zoom, transform: `scale(${0.6 + 0.4 * zoom})`}}>
           <div style={{width: 600, height: 600, position: 'relative', borderRadius: 24, overflow: 'hidden', boxShadow: `0 40px 80px rgba(0,0,0,0.35)`}}>
-            <PharmaTile kind="calcium" w={600} />
+            <FoodTile i={0} w={600} />
           </div>
         </Abs>
       )}
       {calK > 0 && (
         <Abs x={lerp(1080, 470, calK)} y={760} style={{transform: 'rotate(3deg)'}}>
-          <Calendar w={560} fill={(d) => (d % 7 === 1 || d % 7 === 3 || d % 7 === 5 ? prog(t, calAt + 0.3 + d * 0.03, calAt + 0.6 + d * 0.03, easeOut) : 0)} color={(d) => (d % 7 === 3 ? PHARMA.mint : PHARMA.green)} />
+          <Calendar w={560} fill={(d) => (d % 7 === 1 || d % 7 === 3 || d % 7 === 5 ? prog(t, calAt + 0.3 + d * 0.03, calAt + 0.6 + d * 0.03, easeOut) : 0)} color={(d) => (d % 7 === 3 ? FOOD.gold : FOOD.pink)} />
         </Abs>
       )}
       <Abs x={540} y={1352} style={{transform: 'translateX(-50%)', opacity: prog(t, flipAt + 1, flipAt + 1.6, easeOut) * (1 - zoom)}}>

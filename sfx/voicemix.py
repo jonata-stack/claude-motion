@@ -4,7 +4,8 @@
 
 The bed sits `bed_db` (default -17) under its own level and is pressed down a
 further few dB by a sidechain on the voice, so words stay in front without the
-music pumping. Two-pass loudnorm hits -14 LUFS integrated, -1.5 dBTP.
+music pumping. A little low-mid warmth, presence and de-essing take the edge off
+the synthetic voice. Two-pass loudnorm hits -14 LUFS integrated, -1.5 dBTP.
 """
 
 import json
@@ -20,7 +21,7 @@ def run(args):
 def main(voice, bed, out, bed_db="-17"):
     graph = (
         f"[1:a]volume={bed_db}dB[bed];"
-        "[0:a]aformat=channel_layouts=stereo,highpass=f=80,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2[v];"
+        "[0:a]aformat=channel_layouts=stereo,highpass=f=80,equalizer=f=180:t=q:w=1:g=1.5,equalizer=f=3200:t=q:w=1.4:g=1.5,deesser=i=0.35,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2[v];"
         "[v]asplit=2[vk][vm];"
         "[bed][vk]sidechaincompress=threshold=0.03:ratio=4:attack=30:release=450[duck];"
         "[vm][duck]amix=inputs=2:normalize=0:duration=longest[mix]"

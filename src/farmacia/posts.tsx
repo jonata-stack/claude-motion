@@ -12,7 +12,7 @@ const Pic: React.FC<{src: string; style?: React.CSSProperties}> = ({src, style})
 
 /* ---------------------------------------------------------------- pharmacy (green, real products) */
 
-export type PharmaKind = 'calcium' | 'aroeira' | 'sulfuroso' | 'team' | 'shelf' | 'hours' | 'k2' | 'artro' | 'd3';
+export type PharmaKind = 'calcium' | 'aroeira' | 'sulfuroso' | 'team' | 'shelf' | 'hours' | 'k2' | 'artro' | 'd3' | 'vitafor' | 'catarinense';
 
 export const PharmaMark: React.FC<{s: number; color?: string}> = ({s, color = PHARMA.green}) => (
   <svg width={s} height={s} viewBox="0 0 40 40">
@@ -69,6 +69,26 @@ const Boxes: React.FC<{w: number; srcs: (keyof typeof BOX_RATIO)[]; bottom: numb
 );
 
 export const PharmaTile: React.FC<{kind: PharmaKind; w: number}> = ({kind, w}) => {
+  if (kind === 'vitafor' || kind === 'catarinense')
+    return (
+      <PharmaFrame w={w} title={kind === 'vitafor' ? 'Linha Vitafor' : 'Linha Catarinense'} sub="Suplementos • na prateleira" dark={kind === 'catarinense'}>
+        <div
+          style={{
+            position: 'absolute',
+            left: w * 0.07,
+            right: w * 0.07,
+            bottom: w * 0.07,
+            height: w * 0.52,
+            borderRadius: w * 0.035,
+            overflow: 'hidden',
+            background: P.white,
+            boxShadow: `0 ${w * 0.02}px ${w * 0.05}px rgba(20,35,28,0.25)`,
+          }}
+        >
+          <Img src={staticFile(IMG[kind])} style={{...fill, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 60%'}} />
+        </div>
+      </PharmaFrame>
+    );
   if (kind === 'calcium')
     return (
       <PharmaFrame w={w} title="Linha Calcium maxx" sub="Encontre na loja">
@@ -133,18 +153,25 @@ export const PharmaTile: React.FC<{kind: PharmaKind; w: number}> = ({kind, w}) =
   );
 };
 
-/* ---------------------------------------------------------------- "before": real photos, no shared look */
+/* ---------------------------------------------------------------- "before": real photos, no shared look (food demo) */
+
+/** Tight crop of a food photo; the zoom keeps the source art's logo and lettering out of frame. */
+const Crop: React.FC<{src: string; pos: string; zoom: number; style?: React.CSSProperties; filter?: string}> = ({src, pos, zoom, style, filter}) => (
+  <div style={{position: 'absolute', overflow: 'hidden', ...style}}>
+    <Img src={staticFile(src)} style={{...fill, width: '100%', height: '100%', objectFit: 'cover', objectPosition: pos, transform: `scale(${zoom})`, transformOrigin: pos, filter}} />
+  </div>
+);
 
 export const BeforeTile: React.FC<{i: number; w: number}> = ({i, w}) => {
   const kinds = [
     <div key={0} style={{...fill, background: '#F1D7DF'}}>
-      <Pic src={IMG.aroeira} style={{left: '12%', top: '22%', width: '76%', height: '50%', transform: 'rotate(8deg)'}} />
+      <Crop src={IMG.acaiBanana} pos="50% 55%" zoom={1.15} style={{left: '16%', top: '28%', width: '68%', height: '62%', transform: 'rotate(8deg)'}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: '6%', textAlign: 'center', fontFamily: FF.baloo, fontWeight: 800, fontSize: w * 0.13, color: '#C2185B'}}>
         CHEGOU!
       </div>
     </div>,
     <div key={1} style={{...fill, background: '#ECECEC'}}>
-      <Pic src={IMG.k2} style={{left: '22%', top: '4%', width: '56%', height: '92%', filter: 'saturate(0.6) brightness(1.08)'}} />
+      <Crop src={IMG.acaiKiwi} pos="60% 22%" zoom={1.7} style={{inset: 0}} filter="saturate(0.5) brightness(1.15)" />
     </div>,
     <div key={2} style={{...fill, background: '#2C4F9E'}}>
       <div style={{position: 'absolute', inset: '14%', fontFamily: FF.serif, fontSize: w * 0.16, color: '#FFE36E', lineHeight: 1, textAlign: 'center'}}>
@@ -152,11 +179,11 @@ export const BeforeTile: React.FC<{i: number; w: number}> = ({i, w}) => {
       </div>
     </div>,
     <div key={3} style={{...fill, background: '#FFF6D6'}}>
-      <Pic src={IMG.sulfuroso} style={{left: '-6%', top: '30%', width: '80%', height: '50%', transform: 'rotate(-12deg)'}} />
+      <Crop src={IMG.acaiUva} pos="55% 18%" zoom={1.7} style={{left: '-6%', top: '30%', width: '70%', height: '62%', transform: 'rotate(-12deg)'}} />
       <div style={{position: 'absolute', right: '6%', top: '8%', fontFamily: FF.anton, fontSize: w * 0.12, color: '#E86A1C'}}>CONFIRA</div>
     </div>,
     <div key={4} style={{...fill, background: '#DCDCDC'}}>
-      <Pic src={IMG.artro} style={{left: '-10%', top: '-12%', width: '120%', height: '150%', filter: 'brightness(0.9) contrast(0.9)'}} />
+      <Crop src={IMG.acaiUva} pos="55% 18%" zoom={2.2} style={{inset: 0}} filter="brightness(0.8) contrast(0.85)" />
     </div>,
     <div key={5} style={{...fill, background: '#7A3FA0'}}>
       <div style={{position: 'absolute', inset: '18%', fontFamily: FF.sans, fontWeight: 900, fontSize: w * 0.12, color: '#FFFFFF', fontStyle: 'italic', textAlign: 'center'}}>
@@ -164,10 +191,10 @@ export const BeforeTile: React.FC<{i: number; w: number}> = ({i, w}) => {
       </div>
     </div>,
     <div key={6} style={{...fill, background: '#F4F4F4'}}>
-      <Pic src={IMG.d3} style={{left: '28%', top: '10%', width: '44%', height: '80%', transform: 'rotate(90deg)'}} />
+      <Crop src={IMG.acaiColher} pos="30% 70%" zoom={1.6} style={{left: '20%', top: '15%', width: '60%', height: '70%', transform: 'rotate(90deg)'}} />
     </div>,
     <div key={7} style={{...fill, background: '#B9E4F0'}}>
-      <Pic src={IMG.aroeira} style={{left: '0%', top: '0%', width: '100%', height: '100%', filter: 'hue-rotate(-12deg) saturate(1.3)'}} />
+      <Crop src={IMG.acaiBanana} pos="50% 55%" zoom={1.3} style={{inset: 0}} filter="hue-rotate(40deg) saturate(1.4)" />
     </div>,
     <div key={8} style={{...fill, background: '#FFFFFF'}}>
       <div style={{position: 'absolute', left: '10%', top: '35%', fontFamily: FF.mono, fontSize: w * 0.09, color: '#333'}}>promo da semana</div>
@@ -389,7 +416,7 @@ export const PHARMA_BRAND: Brand = {
   ],
   accent: PHARMA.green,
 };
-export const PHARMA_GRID: PharmaKind[] = ['calcium', 'aroeira', 'team', 'shelf', 'd3', 'sulfuroso', 'hours', 'artro', 'k2', 'aroeira', 'calcium', 'team'];
+export const PHARMA_GRID: PharmaKind[] = ['vitafor', 'team', 'catarinense', 'calcium', 'hours', 'vitafor', 'catarinense', 'shelf', 'd3', 'team', 'vitafor', 'k2'];
 
 export const FoodMark: React.FC<{s: number}> = ({s}) => (
   <div style={{width: s, height: s, background: FOOD.pink, display: 'grid', placeItems: 'center', fontFamily: FF.baloo, fontWeight: 800, fontSize: s * 0.42, color: FOOD.cream}}>
