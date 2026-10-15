@@ -17,10 +17,18 @@
     "gif": "ffmpeg -loglevel error -y -i out/effort.mp4 -vf \"fps=12,scale=420:-1:flags=lanczos,hqdn3d=4:4:6:6,split[a][b];[a]palettegen=max_colors=64:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle\" media/preview.gif",
     "typecheck": "tsc",
     "sims": "node sims/build.mjs",
-    "capture": "node sims/capture.mjs"
+    "capture": "node sims/capture.mjs",
+    "farmacia:voz": "python3 -m sfx.voice src/farmacia/narration.json public/farmacia/voz.flac src/farmacia/voice.json",
+    "farmacia:trilha": "python3 -m sfx sfx/cues/farmacia.py",
+    "farmacia:mix": "python3 -m sfx.voicemix public/farmacia/voz.flac public/farmacia/trilha.wav public/farmacia/mix.wav",
+    "farmacia:render": "remotion render FarmaciaApresentacao out/farmacia-silent.mp4",
+    "farmacia:mux": "ffmpeg -loglevel error -y -i out/farmacia-silent.mp4 -i public/farmacia/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -movflags +faststart -shortest out/farmacia.mp4",
+    "farmacia:build": "npm run farmacia:trilha && npm run farmacia:mix && npm run farmacia:render && npm run farmacia:mux"
   },
   "dependencies": {
     "@fontsource-variable/inter": "5.3.0",
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/baloo-2": "^5.3.0",
     "@fontsource/instrument-serif": "5.3.0",
     "@fontsource/jetbrains-mono": "5.3.0",
     "@remotion/cli": "4.0.529",
