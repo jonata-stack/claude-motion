@@ -47,6 +47,8 @@ export const P = {
 /** Demo brands, one per segment, so each reads as its own identity. */
 export const PHARMA = {bg: '#E4EEE8', green: '#1F5C45', greenHi: '#2E7A5D', ink: '#14231C', mint: '#CFE3D7'};
 export const FOOD = {bg: '#2B0A1B', wine: '#4C0E2E', pink: '#E8296F', gold: '#F4C24F', cream: '#FFF3E6'};
+/** Assessoria Ômega, the agency itself: its red mark on near-black. */
+export const OMEGA = {red: '#E3262A', redHi: '#FF4A45', black: '#0E0E10', glow: '227,38,42'};
 export const FASHION = {bg: '#EFE9DF', black: '#161616', camel: '#B98B5E', stone: '#D8CFC2', olive: '#6F6A4E'};
 
 export const FF = {
@@ -66,6 +68,7 @@ export const IMG = {
   vitafor: 'farmacia/vitafor.jpg',
   catarinense: 'farmacia/catarinense.jpg',
   vitaforLinha: 'farmacia/vitafor-linha.png',
+  omega: 'farmacia/omega-logo.png',
   acaiBanana: 'farmacia/acai-tigela-banana.jpg',
   acaiCopo: 'farmacia/acai-copo.jpg',
   acaiKiwi: 'farmacia/acai-tigela-kiwi.jpg',

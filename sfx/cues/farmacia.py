@@ -70,7 +70,7 @@ def score(mix, tl):
 
     groove_in = sc["s3"]["start"]
     groove_out = sc["s10"]["start"] + 1.0
-    end = sc["s10"]["captions"][2]["t0"] - 0.4
+    end = sc["s10"]["captions"][11]["t0"] - 0.4
 
     vol = envelope([(0, 0.0), (1.2, 1.0), (end, 1.0), (end + 0.6, 1.25), (dur - 1.5, 1.25), (dur, 0.0)])
     mix.put_stereo(0, *pad(dur, chords, volume=vol, detune=0.5, tremolo=0.18), gain=0.05)

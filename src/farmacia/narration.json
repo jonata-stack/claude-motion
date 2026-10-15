@@ -33,6 +33,10 @@
     [
      "E aquilo que torna seu negócio especial",
      "nem sempre aparece com a atenção que merece."
+    ],
+    [
+     "No digital, a forma como sua empresa aparece",
+     "muda a forma como ela é percebida."
     ]
    ],
    "tail": 0.6
@@ -42,14 +46,15 @@
    "lead": 0.8,
    "lines": [
     [
-     "Foi dessa percepção que nasceu nossa proposta."
+     "Foi para isso que nasceu a Ômega."
     ],
     [
-     "Somos uma dupla construindo um serviço",
-     "próximo de quem empreende:"
+     "Somos uma assessoria de posicionamento digital:",
+     "estratégia, identidade visual, conteúdo",
+     "e gestão de redes sociais."
     ],
     [
-     "planejamos o conteúdo, cuidamos da apresentação",
+     "Planejamos o conteúdo, cuidamos da apresentação",
      "e organizamos as publicações",
      "para valorizar o que você já faz bem."
     ]
@@ -60,6 +65,12 @@
    "id": "s4",
    "lead": 0.8,
    "lines": [
+    [
+     "Não criamos apenas conteúdo."
+    ],
+    [
+     "Construímos posicionamento."
+    ],
     [
      "Nós agregamos valor à imagem do seu negócio."
     ],
@@ -185,17 +196,37 @@
    "lead": 0.9,
    "lines": [
     [
-     "Seu negócio já tem valor."
+     "Seu negócio já tem uma história,",
+     "uma identidade e um valor."
     ],
     [
-     "Vamos fazer esse valor aparecer também no seu Instagram."
+     "Mas será que o mercado",
+     "consegue enxergar tudo isso?"
     ],
     [
-     "Responda esta mensagem e vamos conversar",
-     "sobre o plano que faz sentido para a sua loja."
+     "Na Ômega, transformamos o potencial da sua marca",
+     "em uma presença digital",
+     "à altura do que ela representa."
+    ],
+    [
+     "Porque não basta ter valor."
+    ],
+    [
+     "É preciso ser reconhecido."
+    ],
+    [
+     "Responda esta mensagem",
+     "e vamos conversar sobre o plano certo para a sua marca."
+    ],
+    [
+     "Ômega."
+    ],
+    [
+     "Sua marca já tem valor.",
+     "Nós fazemos o mercado enxergar."
     ]
    ],
-   "tail": 3.4
+   "tail": 4.0
   }
  ],
  "say": {
@@ -204,6 +235,7 @@
   "stories": "stóris",
   "feed": "fid",
   "posts": "pôsts",
-  "Anvisa": "Anvísa"
+  "Anvisa": "Anvísa",
+  "Ômega": "Ômega"
  }
 }

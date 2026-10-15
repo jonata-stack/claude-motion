@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp01, easeIn, easeOut, lerp, prog} from '../lib';
 import {Mask} from '../components/primitives';
-import {FF, P} from './lib';
+import {FF, IMG, OMEGA, P} from './lib';
 
 /** 0→1 in, hold, 1→0 out. Entrances ease out, exits are faster and ease in. */
 export const life = (t: number, a: number, b: number, fin = 0.6, fout = 0.4) =>
@@ -436,4 +436,20 @@ export const Glow: React.FC<{x: number; y: number; r: number; color?: string; o?
       background: `radial-gradient(circle, rgba(${color},${o}) 0%, rgba(${color},0) 70%)`,
     }}
   />
+);
+
+/** The Ômega mark (logo file, transparent) with a soft red bloom; best on dark backgrounds. */
+export const OmegaMark: React.FC<{w: number; k?: number; glow?: number}> = ({w, k = 1, glow = 1}) => (
+  <div style={{position: 'relative', width: w, height: w * (1200 / 1047), opacity: clamp01(k * 1.5), transform: `scale(${0.86 + 0.14 * k})`}}>
+    <div style={{position: 'absolute', inset: '-30%', background: `radial-gradient(closest-side, rgba(${OMEGA.glow},${0.32 * glow * k}), rgba(${OMEGA.glow},0))`}} />
+    <Img src={staticFile(IMG.omega)} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
+  </div>
+);
+
+/** "ASSESSORIA / ÔMEGA" set in the video's type, light on dark. */
+export const OmegaWord: React.FC<{size: number; k?: number; align?: 'left' | 'center'}> = ({size, k = 1, align = 'left'}) => (
+  <div style={{textAlign: align, opacity: clamp01(k * 1.4), transform: `translateY(${(1 - k) * size * 0.3}px)`}}>
+    <div style={{fontFamily: FF.mono, fontWeight: 600, fontSize: size * 0.24, letterSpacing: '0.42em', color: OMEGA.red, marginLeft: align === 'center' ? '0.42em' : 0}}>ASSESSORIA</div>
+    <div style={{fontFamily: FF.sans, fontWeight: 820, fontSize: size, letterSpacing: '0.1em', color: P.cream, lineHeight: 1, marginTop: size * 0.08}}>ÔMEGA</div>
+  </div>
 );

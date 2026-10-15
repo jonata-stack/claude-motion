@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp01, easeIn, easeInOut, easeOut, lerp, prog} from '../lib';
-import {cap, FASHION, FF, FOOD, IMG, P, PHARMA, scene} from './lib';
+import {cap, FASHION, FF, FOOD, IMG, OMEGA, P, PHARMA, scene} from './lib';
 import {
   Bag,
   FASHION_BRAND,
@@ -17,7 +17,7 @@ import {
   Tee,
 } from './posts';
 import {Segment} from './scenes1';
-import {Abs, Bg, Box, BOX_RATIO, Calendar, Chip, DemoTag, Glow, Hand, Headline, Kicker, life, Phone, Photo} from './ui';
+import {Abs, Bg, Box, BOX_RATIO, Calendar, Chip, DemoTag, Glow, Hand, Headline, Kicker, life, OmegaMark, OmegaWord, Phone, Photo} from './ui';
 
 type SP = {t: number};
 
@@ -720,18 +720,25 @@ export const S9: React.FC<SP> = ({t}) => {
 export const S10: React.FC<SP> = ({t}) => {
   const c = (i: number) => cap('s10', i);
   const s = scene('s10');
-  const phoneA = c(1) - 0.3;
-  const endA = c(2) - 0.4;
-  const prod = 1 - prog(t, phoneA, phoneA + 0.5, easeIn);
-  const ph = life(t, phoneA, endA + 0.45, 0.7, 0.45);
-  const end = prog(t, endA, endA + 0.7, easeOut);
+  const askA = c(2) - 0.3;
+  const omA = c(4) - 0.35;
+  const valA = c(7) - 0.35;
+  const ctaA = c(9) - 0.35;
+  const endA = c(11) - 0.4;
+  const prod = 1 - prog(t, askA, askA + 0.5, easeIn);
+  const ph = life(t, askA, omA + 0.45, 0.7, 0.45);
+  const dark = prog(t, omA, omA + 0.6, easeOut);
+  const om = life(t, omA, valA + 0.4, 0.6, 0.4);
+  const val = life(t, valA, ctaA + 0.4, 0.5, 0.4);
+  const cta = life(t, ctaA, endA + 0.4, 0.5, 0.4);
+  const end = prog(t, endA, endA + 0.9, easeOut);
   return (
     <AbsoluteFill>
       <Bg color={P.sand}>
         <Glow x={540} y={900} r={760} o={0.55} />
       </Bg>
       {prod > 0 && (
-        <AbsoluteFill style={{opacity: prod, transform: `scale(${1 + 0.05 * prog(t, s.start, phoneA, (x) => x)})`}}>
+        <AbsoluteFill style={{opacity: prod, transform: `scale(${1 + 0.05 * prog(t, s.start, askA, (x) => x)})`}}>
           <div style={{position: 'absolute', left: 0, right: 0, top: 1240, bottom: 0, background: P.sand2}} />
           <Abs x={90} y={250} w={900}>
             <Headline t={t} at={c(0)} lines={['Seu negócio', 'já tem valor.']} size={96} accent={['valor']} />
@@ -766,43 +773,95 @@ export const S10: React.FC<SP> = ({t}) => {
       )}
       {ph > 0 && (
         <AbsoluteFill style={{opacity: ph}}>
-          <Trio t={t} a={phoneA + 0.1} tileK={(i) => prog(t, phoneA + 0.4 + i * 0.06, phoneA + 0.8 + i * 0.06, easeOut)} />
+          <Abs x={90} y={250} w={900}>
+            <Headline t={t} at={askA + 0.3} lines={['O mercado consegue', 'enxergar isso?']} size={84} accent={['enxergar']} />
+          </Abs>
+          <Trio t={t} a={askA + 0.1} tileK={(i) => prog(t, askA + 0.4 + i * 0.06, askA + 0.8 + i * 0.06, easeOut)} />
           <Abs x={540} y={1352} style={{transform: 'translateX(-50%)'}}>
             <DemoTag />
           </Abs>
         </AbsoluteFill>
       )}
-      {end > 0 && (
-        <AbsoluteFill style={{opacity: end, background: P.graphite}}>
-          <Glow x={540} y={820} r={760} color="208,112,62" o={0.12} />
-          <Abs x={90} y={520} w={900}>
-            <Headline t={t} at={endA + 0.2} lines={['Vamos valorizar', 'a imagem do seu', 'negócio?']} size={100} color={P.cream} accent={['imagem']} accentColor={P.accentHi} />
-          </Abs>
-          <Abs x={90} y={950} style={{opacity: prog(t, endA + 1.2, endA + 1.9, easeOut), transform: `translateY(${(1 - prog(t, endA + 1.2, endA + 1.9, easeOut)) * 20}px)`}}>
-            <div style={{fontFamily: FF.sans, fontSize: 52, fontWeight: 600, color: P.cream, letterSpacing: '-0.02em'}}>Converse com nossa equipe.</div>
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 18,
-                marginTop: 40,
-                padding: '24px 36px',
-                borderRadius: 999,
-                background: P.accent,
-                color: P.white,
-                fontFamily: FF.sans,
-                fontWeight: 700,
-                fontSize: 40,
-              }}
-            >
-              <svg width={40} height={40} viewBox="0 0 24 24">
-                <path d="M10 6 L4 12 L10 18 M4 12 H14 Q20 12 20 18" fill="none" stroke={P.white} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Responda esta mensagem
-            </div>
-          </Abs>
+      {dark > 0 && (
+        <AbsoluteFill style={{opacity: dark, background: OMEGA.black}}>
+          <Glow x={540} y={760} r={760} color={OMEGA.glow} o={0.14} />
+          {om > 0 && (
+            <AbsoluteFill style={{opacity: om}}>
+              <Abs x={90} y={300}>
+                <OmegaMark w={150} k={prog(t, omA + 0.1, omA + 0.9, easeOut)} glow={0.6} />
+              </Abs>
+              <Abs x={90} y={560} w={900}>
+                <Headline t={t} at={c(4)} lines={['Transformamos', 'presença digital', 'em percepção', 'de valor.']} size={92} color={P.cream} accent={['valor']} accentColor={OMEGA.redHi} />
+              </Abs>
+            </AbsoluteFill>
+          )}
+          {val > 0 && (
+            <AbsoluteFill style={{opacity: val}}>
+              <Abs x={90} y={520} w={900}>
+                <Headline t={t} at={c(7)} lines={['Não basta', 'ter valor.']} size={110} color={P.cream} />
+              </Abs>
+              <Abs x={90} y={790} w={900}>
+                <Headline t={t} at={c(8)} lines={['É preciso ser', 'reconhecido.']} size={110} color={P.cream} accent={['reconhecido']} accentColor={OMEGA.redHi} />
+              </Abs>
+            </AbsoluteFill>
+          )}
+          {cta > 0 && (
+            <AbsoluteFill style={{opacity: cta}}>
+              <Abs x={90} y={560} w={900}>
+                <Headline t={t} at={ctaA + 0.2} lines={['Vamos conversar', 'sobre a sua marca?']} size={92} color={P.cream} accent={['marca?']} accentColor={OMEGA.redHi} />
+              </Abs>
+              <Abs x={90} y={820} style={{opacity: prog(t, ctaA + 0.8, ctaA + 1.4, easeOut)}}>
+                <ReplyPill />
+              </Abs>
+            </AbsoluteFill>
+          )}
+          {end > 0 && (
+            <AbsoluteFill style={{opacity: end}}>
+              <Abs x={540 - 160} y={lerp(330, 290, end)}>
+                <OmegaMark w={320} k={prog(t, endA + 0.1, endA + 1.2, easeOut)} />
+              </Abs>
+              <Abs x={0} y={690} w={1080}>
+                <OmegaWord size={84} align="center" k={prog(t, endA + 0.5, endA + 1.3, easeOut)} />
+              </Abs>
+              <Abs x={0} y={930} w={1080} style={{textAlign: 'center'}}>
+                <div style={{display: 'inline-block', textAlign: 'center'}}>
+                  <Headline t={t} at={c(12)} lines={['Sua marca já tem valor.']} size={60} color={P.cream} align="center" weight={650} />
+                  <div style={{height: 10}} />
+                  <Headline t={t} at={c(13)} lines={['Nós fazemos o', 'mercado enxergar.']} size={72} color={P.cream} align="center" accent={['enxergar']} accentColor={OMEGA.redHi} />
+                </div>
+              </Abs>
+              <Abs x={540} y={1250} style={{transform: 'translateX(-50%)', opacity: prog(t, c(13) + 0.8, c(13) + 1.4, easeOut)}}>
+                <ReplyPill size={34} />
+              </Abs>
+            </AbsoluteFill>
+          )}
         </AbsoluteFill>
       )}
     </AbsoluteFill>
   );
 };
+
+/** The closing call to action: reply to the message this video arrives in. */
+const ReplyPill: React.FC<{size?: number}> = ({size = 40}) => (
+  <div
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: size * 0.45,
+      padding: `${size * 0.6}px ${size * 0.9}px`,
+      borderRadius: 999,
+      background: OMEGA.red,
+      color: P.white,
+      fontFamily: FF.sans,
+      fontWeight: 700,
+      fontSize: size,
+      whiteSpace: 'nowrap',
+      boxShadow: `0 16px 40px rgba(${OMEGA.glow},0.35)`,
+    }}
+  >
+    <svg width={size} height={size} viewBox="0 0 24 24">
+      <path d="M10 6 L4 12 L10 18 M4 12 H14 Q20 12 20 18" fill="none" stroke={P.white} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+    Responda esta mensagem
+  </div>
+);

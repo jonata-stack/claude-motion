@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp01, easeIn, easeInOut, easeOut, lerp, prog, rand} from '../lib';
-import {cap, FASHION, FF, FOOD, IMG, P, PHARMA, scene} from './lib';
+import {cap, FASHION, FF, FOOD, IMG, OMEGA, P, PHARMA, scene} from './lib';
 import {BeforeTile, FashionTile, FeedScreen, FOOD_BRAND, FoodTile, PHARMA_BRAND, PharmaTile, Profile, Sneaker, Tee} from './posts';
-import {Abs, Bg, Box, BOX_RATIO, Calendar, Chip, DemoTag, Glow, Hand, Headline, Kicker, life, Phone} from './ui';
+import {Abs, Bg, Box, BOX_RATIO, Calendar, Chip, DemoTag, Glow, Hand, Headline, Kicker, life, OmegaMark, OmegaWord, Phone} from './ui';
 
 type SP = {t: number};
 
@@ -250,9 +250,12 @@ export const S2: React.FC<SP> = ({t}) => {
             <Headline t={t} at={c(3)} out={fillAt} lines={['Seu negócio tem', 'o que mostrar.']} size={88} />
           </Abs>
           <Abs x={90} y={250} w={900}>
-            <Headline t={t} at={fillAt + 0.15} lines={['Falta organizar essa', 'comunicação.']} size={78} accent={['organizar']} />
+            <Headline t={t} at={fillAt + 0.15} out={c(5) - 0.1} lines={['Falta organizar essa', 'comunicação.']} size={78} accent={['organizar']} />
           </Abs>
-          <Abs x={90} y={lerp(640, 560, calK)}>
+          <Abs x={90} y={250} w={900}>
+            <Headline t={t} at={c(5) + 0.05} lines={['Como você aparece', 'muda como você', 'é percebido.']} size={78} accent={['percebido']} />
+          </Abs>
+          <Abs x={90} y={lerp(640, 560, calK) + 90 * prog(t, c(5) - 0.2, c(5) + 0.5, easeInOut)}>
             <Calendar
               w={900}
               fill={(d) => (d % 7 === 1 || d % 7 === 3 || d % 7 === 5 ? prog(t, fillAt + 0.4 + d * 0.04, fillAt + 0.7 + d * 0.04, easeOut) : 0)}
@@ -303,13 +306,18 @@ const TripodPhone: React.FC<{x: number; y: number; rot: number}> = ({x, y, rot})
 
 export const S3: React.FC<SP> = ({t}) => {
   const c = (i: number) => cap('s3', i);
-  const plan = c(3) - 0.2;
-  const ident = c(3) + 1.25;
-  const post = c(4) - 0.1;
-  const tableK = 1 - prog(t, plan, plan + 0.5, easeIn);
+  const s = scene('s3');
+  const plan = c(4) - 0.2;
+  const ident = c(4) + 1.25;
+  const post = c(5) - 0.1;
+  const tableA = c(1) - 0.3;
+  const brand = 1 - prog(t, tableA, tableA + 0.5, easeIn);
+  const tableK = prog(t, tableA, tableA + 0.5, easeOut) * (1 - prog(t, plan, plan + 0.5, easeIn));
   const boardK = prog(t, plan + 0.1, plan + 0.8, easeOut);
-  const duo = prog(t, c(1) - 0.2, c(1) + 0.9, easeOut);
-  const place = prog(t, c(0) - 0.4, c(0) + 0.9, easeOut);
+  const duo = prog(t, c(2) - 0.4, c(2) + 0.7, easeOut);
+  const place = prog(t, tableA + 0.1, tableA + 1.2, easeOut);
+  const services = ['Estratégia', 'Identidade visual', 'Conteúdo', 'Gestão de redes sociais'];
+  const svcAt = [c(2), c(2) + 0.9, c(2) + 1.9, c(3)];
   const words = [
     {w: 'Planejamento.', at: plan + 0.1},
     {w: 'Identidade.', at: ident},
@@ -325,10 +333,17 @@ export const S3: React.FC<SP> = ({t}) => {
       {tableK > 0 && (
         <AbsoluteFill style={{opacity: tableK}}>
           <Abs x={90} y={250}>
-            <Kicker k={prog(t, c(0), c(0) + 0.8, easeOut)}>Nossa equipe</Kicker>
+            <Kicker k={prog(t, tableA, tableA + 0.8, easeOut)}>Assessoria Ômega</Kicker>
+          </Abs>
+          <Abs x={90} y={300} w={900}>
+            <div style={{display: 'flex', flexWrap: 'wrap', gap: 14}}>
+              {services.map((l, i) => (
+                <Chip key={l} label={l} k={prog(t, svcAt[i] - 0.1, svcAt[i] + 0.5, easeOut)} dot={OMEGA.red} size={30} />
+              ))}
+            </div>
           </Abs>
           <Abs x={60} y={880}>
-            <ShotList t={t} a={c(0) + 0.6} />
+            <ShotList t={t} a={tableA + 0.8} />
           </Abs>
           <Abs x={500} y={lerp(860, 820, place)} style={{transform: `rotate(${lerp(14, 6, place)}deg)`, filter: `drop-shadow(0 18px 20px ${P.shadow})`}}>
             <Tee color={FASHION.camel} s={330} />
@@ -341,7 +356,18 @@ export const S3: React.FC<SP> = ({t}) => {
             <TripodPhone x={560} y={lerp(140, 380, duo)} rot={180} />
             <Hand x={lerp(-160, 250, duo)} y={560} rot={110} s={1.6} curl={0.7} skin={P.skinA} skinDark={P.skinADark} sleeve={P.sleeveA} />
           </div>
-          <Hand x={lerp(-200, 90, prog(t, c(0) + 1.2, c(0) + 2.0, easeOut))} y={1340} rot={60} s={1.5} curl={0.2} skin={P.skinA} skinDark={P.skinADark} sleeve={P.sleeveA} />
+          <Hand x={lerp(-200, 90, prog(t, tableA + 1.2, tableA + 2.0, easeOut))} y={1340} rot={60} s={1.5} curl={0.2} skin={P.skinA} skinDark={P.skinADark} sleeve={P.sleeveA} />
+        </AbsoluteFill>
+      )}
+      {brand > 0 && (
+        <AbsoluteFill style={{opacity: brand, background: OMEGA.black}}>
+          <Glow x={540} y={760} r={700} color={OMEGA.glow} o={0.16 * prog(t, s.start, s.start + 1.5, easeOut)} />
+          <Abs x={540 - 190} y={lerp(560, 520, prog(t, s.start + 0.2, c(0) + 0.8, easeOut))}>
+            <OmegaMark w={380} k={prog(t, s.start + 0.2, s.start + 1.3, easeOut)} />
+          </Abs>
+          <Abs x={0} y={1040} w={1080}>
+            <OmegaWord size={96} align="center" k={prog(t, c(0) + 0.3, c(0) + 1.1, easeOut)} />
+          </Abs>
         </AbsoluteFill>
       )}
       {boardK > 0 && (
@@ -442,10 +468,10 @@ export const S3: React.FC<SP> = ({t}) => {
 export const S4: React.FC<SP> = ({t}) => {
   const c = (i: number) => cap('s4', i);
   const s = scene('s4');
-  const flipAt = c(1);
-  const zoomAt = c(4) - 0.2;
-  const unityAt = c(5) - 0.2;
-  const calAt = c(6) - 0.2;
+  const flipAt = c(3);
+  const zoomAt = c(6) - 0.2;
+  const unityAt = c(7) - 0.2;
+  const calAt = c(8) - 0.2;
   const pw = 400;
   const sw = pw * 0.93;
   const tileFlip = (i: number) => prog(t, flipAt + 0.2 + i * 0.32, flipAt + 0.75 + i * 0.32, easeInOut);
@@ -453,7 +479,9 @@ export const S4: React.FC<SP> = ({t}) => {
   const calK = prog(t, calAt, calAt + 0.8, easeOut);
   const header = prog(t, flipAt + 1.8, flipAt + 2.6, easeInOut);
   const lines: [number, number, string[], string[]][] = [
-    [c(0), zoomAt, ['Nós agregamos', 'valor à imagem', 'do seu negócio.'], ['valor']],
+    [c(0), c(1) - 0.05, ['Não criamos', 'apenas conteúdo.'], []],
+    [c(1) + 0.05, c(2) - 0.05, ['Construímos', 'posicionamento.'], ['posicionamento']],
+    [c(2) + 0.05, zoomAt, ['Nós agregamos', 'valor à imagem', 'do seu negócio.'], ['valor']],
     [zoomAt + 0.15, unityAt, ['Mais cuidado na', 'apresentação.'], ['cuidado']],
     [unityAt + 0.15, calAt, ['Mais unidade', 'para sua marca.'], ['unidade']],
     [calAt + 0.15, s.end + 1, ['Mais organização', 'para sua rotina.'], ['organização']],

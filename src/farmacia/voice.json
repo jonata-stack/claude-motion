@@ -1,5 +1,5 @@
 {
- "duration": 177.036,
+ "duration": 208.491,
  "scenes": {
   "s1": {
    "start": 0.0,
@@ -25,11 +25,11 @@
     {
      "text": "Porque, antes de entrar na sua loja,",
      "t0": 9.057,
-     "t1": 11.252
+     "t1": 11.257
     },
     {
      "text": "muita gente conhece você pela tela.",
-     "t0": 11.252,
+     "t0": 11.257,
      "t1": 13.387
     }
    ]
@@ -37,8 +37,8 @@
   "s2": {
    "start": 13.987,
    "voice": 14.787,
-   "voiceEnd": 26.517,
-   "end": 27.117,
+   "voiceEnd": 31.913,
+   "end": 32.513,
    "captions": [
     {
      "text": "Só que, entre atender, organizar a operação",
@@ -58,336 +58,411 @@
     {
      "text": "E aquilo que torna seu negócio especial",
      "t0": 21.507,
-     "t1": 24.147
+     "t1": 24.137
     },
     {
      "text": "nem sempre aparece com a atenção que merece.",
-     "t0": 24.147,
+     "t0": 24.137,
      "t1": 26.517
+    },
+    {
+     "text": "No digital, a forma como sua empresa aparece",
+     "t0": 27.123,
+     "t1": 30.393
+    },
+    {
+     "text": "muda a forma como ela é percebida.",
+     "t0": 30.393,
+     "t1": 31.913
     }
    ]
   },
   "s3": {
-   "start": 27.117,
-   "voice": 27.917,
-   "voiceEnd": 41.439,
-   "end": 42.039,
+   "start": 32.513,
+   "voice": 33.313,
+   "voiceEnd": 49.797,
+   "end": 50.397,
    "captions": [
     {
-     "text": "Foi dessa percepção que nasceu nossa proposta.",
-     "t0": 27.917,
-     "t1": 30.527
+     "text": "Foi para isso que nasceu a Ômega.",
+     "t0": 33.313,
+     "t1": 35.253
     },
     {
-     "text": "Somos uma dupla construindo um serviço",
-     "t0": 31.049,
-     "t1": 33.109
+     "text": "Somos uma assessoria de posicionamento digital:",
+     "t0": 35.747,
+     "t1": 38.557
     },
     {
-     "text": "próximo de quem empreende:",
-     "t0": 33.109,
-     "t1": 34.619
+     "text": "estratégia, identidade visual, conteúdo",
+     "t0": 38.557,
+     "t1": 40.467
     },
     {
-     "text": "planejamos o conteúdo, cuidamos da apresentação",
-     "t0": 34.839,
-     "t1": 37.53
+     "text": "e gestão de redes sociais.",
+     "t0": 40.467,
+     "t1": 42.577
+    },
+    {
+     "text": "Planejamos o conteúdo, cuidamos da apresentação",
+     "t0": 43.197,
+     "t1": 45.887
     },
     {
      "text": "e organizamos as publicações",
-     "t0": 37.53,
-     "t1": 39.599
+     "t0": 45.887,
+     "t1": 47.962
     },
     {
      "text": "para valorizar o que você já faz bem.",
-     "t0": 39.599,
-     "t1": 41.439
+     "t0": 47.962,
+     "t1": 49.797
     }
    ]
   },
   "s4": {
-   "start": 42.039,
-   "voice": 42.839,
-   "voiceEnd": 61.001,
-   "end": 61.801,
+   "start": 50.397,
+   "voice": 51.197,
+   "voiceEnd": 74.131,
+   "end": 74.931,
    "captions": [
     {
+     "text": "Não criamos apenas conteúdo.",
+     "t0": 51.197,
+     "t1": 53.127
+    },
+    {
+     "text": "Construímos posicionamento.",
+     "t0": 53.609,
+     "t1": 55.489
+    },
+    {
      "text": "Nós agregamos valor à imagem do seu negócio.",
-     "t0": 42.839,
-     "t1": 45.509
+     "t0": 55.969,
+     "t1": 58.639
     },
     {
      "text": "Cada arte, cada legenda e cada vídeo",
-     "t0": 46.027,
-     "t1": 48.397
+     "t0": 59.157,
+     "t1": 61.527
     },
     {
      "text": "passa a fazer parte de uma apresentação",
-     "t0": 48.397,
-     "t1": 50.685
+     "t0": 61.527,
+     "t1": 63.815
     },
     {
      "text": "mais organizada e reconhecível.",
-     "t0": 50.685,
-     "t1": 52.667
+     "t0": 63.815,
+     "t1": 65.797
     },
     {
      "text": "Seu produto ganha destaque.",
-     "t0": 53.287,
-     "t1": 55.097
+     "t0": 66.417,
+     "t1": 68.227
     },
     {
      "text": "Sua marca ganha consistência.",
-     "t0": 55.577,
-     "t1": 57.507
+     "t0": 68.707,
+     "t1": 70.637
     },
     {
      "text": "E você ganha uma rotina de conteúdo planejada.",
-     "t0": 57.991,
-     "t1": 61.001
+     "t0": 71.121,
+     "t1": 74.131
     }
    ]
   },
   "s5": {
-   "start": 61.801,
-   "voice": 62.601,
-   "voiceEnd": 87.646,
-   "end": 88.446,
+   "start": 74.931,
+   "voice": 75.731,
+   "voiceEnd": 100.766,
+   "end": 101.566,
    "captions": [
     {
      "text": "Para farmácias e drogarias,",
-     "t0": 62.601,
-     "t1": 64.231
+     "t0": 75.731,
+     "t1": 77.361
     },
     {
      "text": "desenvolvemos conteúdos estratégicos",
-     "t0": 64.231,
-     "t1": 66.236
+     "t0": 77.361,
+     "t1": 79.366
     },
     {
      "text": "alinhados às normas de publicidade",
-     "t0": 66.236,
-     "t1": 68.646
+     "t0": 79.366,
+     "t1": 81.776
     },
     {
      "text": "e às exigências da Anvisa,",
-     "t0": 68.646,
-     "t1": 70.306
+     "t0": 81.776,
+     "t1": 83.436
     },
     {
      "text": "valorizando os produtos e a identidade",
-     "t0": 70.306,
-     "t1": 72.846
+     "t0": 83.436,
+     "t1": 85.976
     },
     {
      "text": "de cada estabelecimento.",
-     "t0": 72.846,
-     "t1": 74.051
+     "t0": 85.976,
+     "t1": 87.181
     },
     {
      "text": "Na alimentação, mostramos o preparo",
-     "t0": 74.671,
-     "t1": 76.456
+     "t0": 87.801,
+     "t1": 89.586
     },
     {
      "text": "e os detalhes que despertam vontade.",
-     "t0": 76.456,
-     "t1": 78.711
+     "t0": 89.586,
+     "t1": 91.841
     },
     {
      "text": "Nas lojas de roupas e calçados,",
-     "t0": 79.291,
-     "t1": 81.226
+     "t0": 92.421,
+     "t1": 94.356
     },
     {
      "text": "destacamos peças, combinações e novidades.",
-     "t0": 81.226,
-     "t1": 83.961
+     "t0": 94.356,
+     "t1": 97.081
     },
     {
      "text": "O conteúdo acompanha a identidade de cada negócio.",
-     "t0": 84.546,
-     "t1": 87.646
+     "t0": 97.666,
+     "t1": 100.766
     }
    ]
   },
   "s6": {
-   "start": 88.446,
-   "voice": 89.246,
-   "voiceEnd": 102.716,
-   "end": 105.316,
+   "start": 101.566,
+   "voice": 102.366,
+   "voiceEnd": 115.836,
+   "end": 118.436,
    "captions": [
     {
      "text": "Para começar com uma presença organizada,",
-     "t0": 89.246,
-     "t1": 91.601
+     "t0": 102.366,
+     "t1": 104.721
     },
     {
      "text": "o plano Essencial custa quinhentos reais por mês.",
-     "t0": 91.601,
-     "t1": 94.466
+     "t0": 104.721,
+     "t1": 107.586
     },
     {
      "text": "São oito publicações no feed,",
-     "t0": 95.086,
-     "t1": 96.741
+     "t0": 108.206,
+     "t1": 109.861
     },
     {
      "text": "com artes, legendas, calendário e publicação:",
-     "t0": 96.741,
-     "t1": 99.556
+     "t0": 109.861,
+     "t1": 112.676
     },
     {
      "text": "quatro carrosséis e quatro posts de imagem única.",
-     "t0": 99.776,
-     "t1": 102.716
+     "t0": 112.896,
+     "t1": 115.836
     }
    ]
   },
   "s7": {
-   "start": 105.316,
-   "voice": 106.216,
-   "voiceEnd": 125.866,
-   "end": 128.866,
+   "start": 118.436,
+   "voice": 119.336,
+   "voiceEnd": 138.986,
+   "end": 141.986,
    "captions": [
     {
      "text": "Para incluir vídeos e mostrar seu negócio de perto,",
-     "t0": 106.216,
-     "t1": 109.131
+     "t0": 119.336,
+     "t1": 122.251
     },
     {
      "text": "o plano Presença mais Vídeo",
-     "t0": 109.131,
-     "t1": 110.856
+     "t0": 122.251,
+     "t1": 123.918
     },
     {
      "text": "custa mil e duzentos reais por mês.",
-     "t0": 110.856,
-     "t1": 112.886
+     "t0": 123.918,
+     "t1": 126.006
     },
     {
      "text": "Nós vamos até sua loja em uma visita mensal",
-     "t0": 113.506,
-     "t1": 116.069
+     "t0": 126.626,
+     "t1": 129.451
     },
     {
      "text": "de até duas horas,",
-     "t0": 116.069,
-     "t1": 117.246
+     "t0": 129.451,
+     "t1": 130.366
     },
     {
      "text": "gravamos e editamos quatro Reels.",
-     "t0": 117.246,
-     "t1": 119.366
+     "t0": 130.366,
+     "t1": 132.486
     },
     {
      "text": "Você também recebe as oito publicações do Essencial",
-     "t0": 119.986,
-     "t1": 123.041
+     "t0": 133.106,
+     "t1": 136.161
     },
     {
      "text": "e oito telas de stories adaptadas dos conteúdos.",
-     "t0": 123.041,
-     "t1": 125.866
+     "t0": 136.161,
+     "t1": 138.986
     }
    ]
   },
   "s8": {
-   "start": 128.866,
-   "voice": 129.766,
-   "voiceEnd": 147.386,
-   "end": 148.386,
+   "start": 141.986,
+   "voice": 142.886,
+   "voiceEnd": 160.506,
+   "end": 161.506,
    "captions": [
     {
      "text": "Primeiro, alinhamos sua identidade,",
-     "t0": 129.766,
-     "t1": 131.976
+     "t0": 142.886,
+     "t1": 145.096
     },
     {
      "text": "seus produtos e suas prioridades.",
-     "t0": 131.976,
-     "t1": 134.066
+     "t0": 145.096,
+     "t1": 147.186
     },
     {
      "text": "Depois, organizamos o calendário",
-     "t0": 134.639,
-     "t1": 136.555
+     "t0": 147.759,
+     "t1": 149.675
     },
     {
      "text": "e produzimos os materiais.",
-     "t0": 136.555,
-     "t1": 138.169
+     "t0": 149.675,
+     "t1": 151.289
     },
     {
      "text": "Você aprova o conteúdo antes da publicação.",
-     "t0": 138.72,
-     "t1": 141.44
+     "t0": 151.84,
+     "t1": 154.56
     },
     {
      "text": "No plano presencial, a gravação é agendada",
-     "t0": 141.956,
-     "t1": 144.691
+     "t0": 155.076,
+     "t1": 157.811
     },
     {
      "text": "para produzir os vídeos do mês em uma única sessão.",
-     "t0": 144.691,
-     "t1": 147.386
+     "t0": 157.811,
+     "t1": 160.506
     }
    ]
   },
   "s9": {
-   "start": 148.386,
-   "voice": 149.186,
-   "voiceEnd": 158.526,
-   "end": 161.726,
+   "start": 161.506,
+   "voice": 162.306,
+   "voiceEnd": 171.646,
+   "end": 174.846,
    "captions": [
     {
      "text": "Também temos organização inicial do perfil",
-     "t0": 149.186,
-     "t1": 151.941
+     "t0": 162.306,
+     "t1": 165.061
     },
     {
      "text": "e atendimento básico de mensagens e comentários",
-     "t0": 151.941,
-     "t1": 154.638
+     "t0": 165.061,
+     "t1": 167.758
     },
     {
      "text": "como serviços adicionais,",
-     "t0": 154.638,
-     "t1": 156.506
+     "t0": 167.758,
+     "t1": 169.626
     },
     {
      "text": "conforme a necessidade da sua loja.",
-     "t0": 156.506,
-     "t1": 158.526
+     "t0": 169.626,
+     "t1": 171.646
     }
    ]
   },
   "s10": {
-   "start": 161.726,
-   "voice": 162.626,
-   "voiceEnd": 173.636,
-   "end": 177.036,
+   "start": 174.846,
+   "voice": 175.746,
+   "voiceEnd": 204.491,
+   "end": 208.491,
    "captions": [
     {
-     "text": "Seu negócio já tem valor.",
-     "t0": 162.626,
-     "t1": 164.386
+     "text": "Seu negócio já tem uma história,",
+     "t0": 175.746,
+     "t1": 177.501
     },
     {
-     "text": "Vamos fazer esse valor aparecer também no seu Instagram.",
-     "t0": 164.861,
-     "t1": 168.051
+     "text": "uma identidade e um valor.",
+     "t0": 177.501,
+     "t1": 179.106
     },
     {
-     "text": "Responda esta mensagem e vamos conversar",
-     "t0": 168.596,
-     "t1": 171.596
+     "text": "Mas será que o mercado",
+     "t0": 179.657,
+     "t1": 180.442
     },
     {
-     "text": "sobre o plano que faz sentido para a sua loja.",
-     "t0": 171.596,
-     "t1": 173.636
+     "text": "consegue enxergar tudo isso?",
+     "t0": 180.442,
+     "t1": 182.577
+    },
+    {
+     "text": "Na Ômega, transformamos o potencial da sua marca",
+     "t0": 183.127,
+     "t1": 185.792
+    },
+    {
+     "text": "em uma presença digital",
+     "t0": 185.792,
+     "t1": 187.467
+    },
+    {
+     "text": "à altura do que ela representa.",
+     "t0": 187.467,
+     "t1": 189.297
+    },
+    {
+     "text": "Porque não basta ter valor.",
+     "t0": 189.917,
+     "t1": 191.597
+    },
+    {
+     "text": "É preciso ser reconhecido.",
+     "t0": 192.077,
+     "t1": 193.897
+    },
+    {
+     "text": "Responda esta mensagem",
+     "t0": 194.374,
+     "t1": 195.984
+    },
+    {
+     "text": "e vamos conversar sobre o plano certo para a sua marca.",
+     "t0": 195.984,
+     "t1": 198.864
+    },
+    {
+     "text": "Ômega.",
+     "t0": 199.458,
+     "t1": 200.168
+    },
+    {
+     "text": "Sua marca já tem valor.",
+     "t0": 200.601,
+     "t1": 202.361
+    },
+    {
+     "text": "Nós fazemos o mercado enxergar.",
+     "t0": 202.361,
+     "t1": 204.491
     }
    ]
   }
