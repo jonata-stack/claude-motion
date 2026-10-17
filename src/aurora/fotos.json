@@ -1,0 +1,61 @@
+{
+  "_doc": "Each slot: file in public/aurora/fotos/ (jpg, or mp4 played muted), null = placeholder; focus = object-position; label = room name shown only when certain.",
+  "paisagem": {
+    "file": "IMG_20210711_165930.jpg",
+    "hint": "Melhor foto da paisagem",
+    "focus": "50% 50%"
+  },
+  "terreno1": {
+    "file": "IMG_20241229_151759.jpg",
+    "hint": "Foto aberta do terreno",
+    "focus": "50% 50%"
+  },
+  "terreno2": {
+    "file": "IMG_20241229_151900.jpg",
+    "hint": "Árvores / vegetação",
+    "focus": "50% 50%"
+  },
+  "rio": {
+    "file": null,
+    "hint": "Rio Palma na área (se houver)",
+    "focus": "50% 50%"
+  },
+  "area": {
+    "file": "IMG_20241229_151510.jpg",
+    "hint": "Outra foto real da área (usada se não houver foto do rio)",
+    "focus": "50% 50%"
+  },
+  "casa1": {
+    "file": "IMG_20241229_152211.jpg",
+    "hint": "Casa principal, fachada",
+    "focus": "50% 50%",
+    "label": null
+  },
+  "casa2": {
+    "file": "IMG_20241229_152406.jpg",
+    "hint": "Casa / construções",
+    "focus": "50% 50%",
+    "label": null
+  },
+  "casa3": {
+    "file": "IMG_20241229_152453.jpg",
+    "hint": "Casa de caseiro ou outra construção",
+    "focus": "50% 50%",
+    "label": null
+  },
+  "geral": {
+    "file": "IMG_20241229_151553.jpg",
+    "hint": "Melhor imagem geral da propriedade",
+    "focus": "50% 50%"
+  },
+  "final": {
+    "file": "VID_20241229_160635.mp4",
+    "hint": "Paisagem final",
+    "focus": "50% 50%"
+  },
+  "area2": {
+    "file": "IMG_20241229_152414.jpg",
+    "hint": "Segunda foto real da área (cena do rio)",
+    "focus": "55% 50%"
+  }
+}
