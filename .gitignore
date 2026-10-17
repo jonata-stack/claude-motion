@@ -7,3 +7,6 @@ __pycache__/
 .env
 drafts/
 sims/dist/
+public/aurora/fotos/
+public/aurora/*.wav
+public/aurora/voz/*.wav

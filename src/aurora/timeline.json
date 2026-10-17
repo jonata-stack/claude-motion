@@ -1,0 +1,107 @@
+{
+  "fps": 30,
+  "duration": 60,
+  "xfade": 0.7,
+  "s1": {
+    "start": 0,
+    "title": 0.5,
+    "voice": 0.7
+  },
+  "s2": {
+    "start": 6,
+    "photoB": 10,
+    "chips": [
+      7.0,
+      7.35,
+      7.7
+    ],
+    "voice": 6.5
+  },
+  "s3": {
+    "start": 14,
+    "text": 14.6,
+    "voice": 14.4,
+    "photoB": 18.6
+  },
+  "s4": {
+    "start": 23,
+    "photoB": 26.7,
+    "photoC": 30.4,
+    "items": [
+      23.8,
+      24.3,
+      24.8
+    ],
+    "voice": 23.7
+  },
+  "s5": {
+    "start": 34,
+    "map": 34.3,
+    "property": 35.0,
+    "aurora": 35.9,
+    "azuis": 37.0,
+    "road": 38.6,
+    "facts": [
+      36.4,
+      37.6
+    ],
+    "access": 39.4,
+    "voice": 35.2
+  },
+  "s6": {
+    "start": 45,
+    "price": 45.8,
+    "doc": 47.2,
+    "voice": 45.5
+  },
+  "s7": {
+    "start": 53,
+    "cta": 53.8,
+    "phone": 54.6,
+    "voice": 53.6
+  },
+  "voice": [
+    {
+      "id": "v1",
+      "scene": "s1",
+      "say": "Imagine reunir a família em um lugar com natureza, espaço e tranquilidade.",
+      "text": "Imagine reunir a família em um lugar com natureza, espaço e tranquilidade."
+    },
+    {
+      "id": "v2",
+      "scene": "s2",
+      "say": "São dezenove hectares em Aurora do Tocantins, na região turística das Serras Gerais.",
+      "text": "São 19 hectares em Aurora do Tocantins, na região turística das Serras Gerais."
+    },
+    {
+      "id": "v3",
+      "scene": "s3",
+      "say": "O Rio Palma atravessa a área por cerca de seiscentos metros, com água o ano inteiro e trechos utilizados pela família para banho.",
+      "text": "O Rio Palma atravessa a área por cerca de 600 metros, com água o ano inteiro e trechos utilizados pela família para banho."
+    },
+    {
+      "id": "v4",
+      "scene": "s4",
+      "say": "A estrutura inclui casa principal com quatro quartos, três suítes adicionais e casa de caseiro.",
+      "text": "A estrutura inclui casa principal com quatro quartos, três suítes adicionais e casa de caseiro."
+    },
+    {
+      "id": "v5",
+      "scene": "s5",
+      "say": "Uma base para aproveitar os atrativos da região e estudar um projeto de hospedagem rural.",
+      "text": "Uma base para aproveitar os atrativos da região e estudar um projeto de hospedagem rural."
+    },
+    {
+      "id": "v6",
+      "scene": "s6",
+      "say": "Disponível por dois milhões de reais. Área com documento de posse e regularização fundiária em andamento.",
+      "text": "Disponível por dois milhões de reais. Área com documento de posse e regularização fundiária em andamento."
+    },
+    {
+      "id": "v7",
+      "scene": "s7",
+      "say": "Entre em contato para conhecer os detalhes e agendar uma visita.",
+      "text": "Entre em contato para conhecer os detalhes e agendar uma visita."
+    }
+  ]
+}
