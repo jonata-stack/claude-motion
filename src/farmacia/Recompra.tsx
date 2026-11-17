@@ -65,11 +65,13 @@ const Talk: React.FC<{frame: number}> = ({frame}) => {
   const k = a === 0 ? 1 : sp(frame, a, {damping: 15, stiffness: 200, mass: 0.7});
   const settle = a === 0 ? 1 + 0.03 * (1 - prog(t, 0, 0.8, easeOut)) : 1;
   const out = easeIn(clamp01((t - (b - 0.3)) / 0.3));
-  // Punch in on "cliente some": also crops the badge burned into the source.
-  const punch = prog(t, 43.8, 44.05, easeOut);
-  const sc = lerp(TALK_W / 950, TALK_W / 870, punch);
-  const left = -lerp(65, 105, punch) * sc;
-  const top = -lerp(430, 510, punch) * sc;
+  // Punch in on "percebe" and "cliente some": also crops the badges burned into the source.
+  const early = t < 10;
+  const punch = early ? prog(t, 3.42, 3.6, easeOut) : prog(t, 43.8, 44.05, easeOut);
+  const pTop = early ? 560 : 510;
+  const sc = TALK_W / lerp(950, 1380 - pTop, punch);
+  const left = -lerp(65, (1080 - (1380 - pTop)) / 2, punch) * sc;
+  const top = -lerp(430, pTop, punch) * sc;
   const drift = Math.sin(t * 0.6) * 4;
   return (
     <div
@@ -126,7 +128,7 @@ const Problem: React.FC<{frame: number}> = ({frame}) => {
   const s2 = T.s2;
   const s3 = T.s3;
   // Maria: in, then walks to the competitor, then hops off.
-  let mw = walk(t, s1.maria - 0.5, 0.7, -160, 300);
+  let mw = walk(t, 4.55, 0.8, -160, 300);
   if (t > s3.walk) mw = walk(t, s3.walk, 0.55, 300, 760, 2);
   const mOut = leave(t, s3.exit, 0.45);
   const mood = t > s2.forget && t < s3.walk ? 'lost' : 'ok';
@@ -153,7 +155,7 @@ const Problem: React.FC<{frame: number}> = ({frame}) => {
           </Prop>
         </>
       )}
-      {t > s1.maria - 0.5 && <Maria frame={frame} w={{...mw, x: mw.x - mOut * 700}} mood={mood} />}
+      {t > 4.55 && <Maria frame={frame} w={{...mw, x: mw.x - mOut * 700}} mood={mood} />}
       {jar.on && jarOut < 1 && (
         <Prop x={700 + jarOut * 600} w={200} h={275} lift={jar.lift} squash={jar.squash} ry={-24}>
           <Jar s={200} fill={fill} />
